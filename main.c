@@ -63,8 +63,8 @@ int main()
                        
                         if (consultarAnime(estoque, totalAnimes) != 0)
                         {
-                            // Se retornar diferente de 0, houve erro ou anime nao encontrado
-                            printf("Erro ao consultar anime ou anime nao encontrado.\n");
+                            // Se retornar diferente de 0, o estoque esta vazio
+                            
                             break; // Sai do loop imediatamente
                         }
 

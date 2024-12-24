@@ -44,7 +44,7 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
     printf("Deseja buscar por:\n");
     printf("1. Codigo\n");
     printf("2. Nome\n");
-    printf("Escolha uma opção: ");
+    printf("Escolha uma opcao: ");
     scanf("%d", &opcao);
 
     if (opcao == 1)
@@ -65,7 +65,7 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
             }
         }
         printf("Nenhum anime encontrado com o codigo %d.\n", codigoBusca);
-        return 1; // Falha: código não encontrado
+        return 0;
     }
     else if (opcao == 2)
     {
@@ -85,11 +85,11 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
             }
         }
         printf("Nenhum anime encontrado com o nome '%s'.\n", nomeBusca);
-        return 1; // Falha: nome não encontrado
+        return 0;
     }
     else
     {
         printf("Opção invalida.\n");
-        return 1; // Falha: opção inválida
+        return 0;
     }
 }
