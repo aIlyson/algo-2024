@@ -3,7 +3,4 @@
 #include "estoque.h"
 
 // aqui vai as funcoes
-void funcaoTeste()
-{
-    printf("passou\n");
-}
+
