@@ -43,6 +43,7 @@ int main()
                     // cadastrar anime
                     // aqui onde vamos adicionar o nome do anime e quantidade de blu-rays disponíveis
                     printf("adicionando anime...\n");
+                    funcaoTeste();
                     // chame a função cadastrarAnime(estoque, &totalAnimes)
                     break;
 

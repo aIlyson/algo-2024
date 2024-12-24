@@ -11,5 +11,6 @@ struct Anime {
 
 // função para os animes fica abaixo
 // ...
+void funcaoTeste();
 
 #endif

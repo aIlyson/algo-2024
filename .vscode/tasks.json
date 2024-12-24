@@ -1,16 +1,45 @@
 {
+    "version": "2.0.0",
     "tasks": [
         {
+            "label": "Build C Project",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-Wall",
+                "-Wextra",
+                "-Wpedantic",
+                "-Wshadow",
+                "-Wformat=2",
+                "-Wcast-align",
+                "-Wconversion",
+                "-Wsign-conversion",
+                "-Wnull-dereference",
+                "-g",
+                "main.c",
+                "methods/estoque.c",
+                "-o",
+                "build/outDebug.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Compilação do projeto com múltiplos arquivos."
+        },
+        {
             "type": "cppbuild",
-            "label": "C/C++: gcc.exe arquivo de build ativo",
+            "label": "C/C++: Build arquivo ativo",
             "command": "C:/MinGW/bin/gcc.exe",
             "args": [
-                "-fdiagnostics-color=always",
+                "-Wall",
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                ""
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "C:/MinGW/bin"
@@ -20,10 +49,9 @@
             ],
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": false
             },
-            "detail": "Tarefa gerada pelo Depurador."
+            "detail": "Compilação de um único arquivo ativo."
         }
-    ],
-    "version": "2.0.0"
+    ]
 }
