@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "c:/Users/alyss/Downloads/algoritmos-crunchyroll",
+      "program": "c:/Users/alyss/Downloads/algoritmos-crunchyroll/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

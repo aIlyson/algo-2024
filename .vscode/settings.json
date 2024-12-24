@@ -62,6 +62,7 @@
     "*.embeddedhtml": "html",
     "*.css": "css",
     "estoque.h": "c",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "string.h": "c"
   }
 }
