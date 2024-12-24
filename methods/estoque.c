@@ -3,9 +3,11 @@
 #include "estoque.h"
 
 // aqui vai as funcoes
-void cadastrarAnime(struct Anime estoque[], int *totalAnimes) {
-    if (*totalAnimes >= 100) {
-        printf("Erro: Estoque cheio. Não é possível cadastrar mais animes.\n");
+void cadastrarAnime(struct Anime estoque[], int *totalAnimes)
+{
+    if (*totalAnimes >= 100)
+    {
+        printf("Erro: Estoque cheio. Não eh possível cadastrar mais animes.\n");
         return;
     }
 
@@ -30,13 +32,12 @@ void cadastrarAnime(struct Anime estoque[], int *totalAnimes) {
     printf("Anime cadastrado com sucesso! Codigo: %d\n", novoAnime.codigo);
 }
 
-
-void consultarAnime(struct Anime estoque[], int totalAnimes)
+int consultarAnime(struct Anime estoque[], int totalAnimes)
 {
     if (totalAnimes == 0)
     {
-        printf("O estoque está vazio!\n");
-        return;
+        printf("O estoque esta vazio!\n");
+        return 1; // Estoque vazio
     }
 
     int opcao;
@@ -60,16 +61,17 @@ void consultarAnime(struct Anime estoque[], int totalAnimes)
                 printf("Codigo: %d\n", estoque[i].codigo);
                 printf("Nome: %s\n", estoque[i].nome);
                 printf("Quantidade de Blu-rays: %d\n", estoque[i].quantidadeBluRay);
-                return;
+                return 0; // Sucesso: anime encontrado
             }
         }
         printf("Nenhum anime encontrado com o codigo %d.\n", codigoBusca);
+        return 1; // Falha: código não encontrado
     }
     else if (opcao == 2)
     {
         char nomeBusca[100];
         printf("Digite o nome do anime: ");
-        scanf(" %[^\n]s", nomeBusca);  // Lê a string com espaços
+        scanf(" %[^\n]s", nomeBusca); // Lê a string com espaços
 
         for (int i = 0; i < totalAnimes; i++)
         {
@@ -79,13 +81,15 @@ void consultarAnime(struct Anime estoque[], int totalAnimes)
                 printf("Codigo: %d\n", estoque[i].codigo);
                 printf("Nome: %s\n", estoque[i].nome);
                 printf("Quantidade de Blu-rays: %d\n", estoque[i].quantidadeBluRay);
-                return;
+                return 0; // Sucesso: anime encontrado
             }
         }
         printf("Nenhum anime encontrado com o nome '%s'.\n", nomeBusca);
+        return 1; // Falha: nome não encontrado
     }
     else
     {
-        printf("Opção inválida.\n");
+        printf("Opção invalida.\n");
+        return 1; // Falha: opção inválida
     }
 }

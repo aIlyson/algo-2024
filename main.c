@@ -43,14 +43,36 @@ int main()
                     // cadastrar anime
                     // aqui onde vamos adicionar o nome do anime e quantidade de blu-rays disponíveis
                     printf("adicionando anime...\n");
-                     cadastrarAnime(estoque, &totalAnimes);
+                    char opcao;
+                    while (opcao != 'n')
+                    {
+                        cadastrarAnime(estoque, &totalAnimes);
+                        printf("Deseja cadastrar outro anime? (s/n): ");
+                        scanf(" %c", &opcao);
+                    }
+
                     break;
 
                 case 2:
                     // consultar anime
                     // aqui ele vai buscar o anime pelo nome ou código e exibir suas informações
                     printf("consultando anime...\n");
-                    consultarAnime(estoque, totalAnimes);
+
+                    do
+                    {
+                       
+                        if (consultarAnime(estoque, totalAnimes) != 0)
+                        {
+                            // Se retornar diferente de 0, houve erro ou anime nao encontrado
+                            printf("Erro ao consultar anime ou anime nao encontrado.\n");
+                            break; // Sai do loop imediatamente
+                        }
+
+                        // Pergunta se o usuário deseja consultar outro anime
+                        printf("Deseja consultar outro anime? (s/n): ");
+                        scanf(" %c", &opcao); // Nota: espaço antes do %c para limpar o buffer
+                    } while (opcao == 's'); // Continua enquanto o usuário quiser
+
                     break;
 
                 case 3:
@@ -84,7 +106,7 @@ int main()
                     }
                     else
                     {
- 
+
                         printf("error...\n");
                     }
                     break;
@@ -126,4 +148,4 @@ int main()
     } while (op != 2);
 
     return 0;
-} 
+}
