@@ -6,15 +6,14 @@ int main()
     // TODO: lembrar de definir o tamanho do array
     struct Anime estoque[100];
     int totalAnimes = 0; // contador de animes cadastrados
-    int op;
+    int op, subOp;
 
     do
     {
-        printf("\n*** MENU PRINCIPAL - Loteria de Animes ***\n");
+        printf("\n*** MENU PRINCIPAL ***\n");
         printf("-------------------------------------------\n");
         printf("1. Gerenciar estoque de animes\n");
-        printf("2. Consultar relatorio do estoque\n");
-        printf("3. Sair\n");
+        printf("2. Sair\n");
         printf("-------------------------------------------\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &op);
@@ -30,18 +29,18 @@ int main()
                 printf("1. Adicionar anime\n");
                 printf("2. Consultar anime\n");
                 printf("3. Editar anime\n");
-                printf("4. Adicionar Blu-ray ao Estoque\n");
-                printf("5. Remover Blu-ray do Estoque\n");
-                printf("6. Remover anime do estoque\n");
-                printf("7. Voltar ao menu\n");
+                printf("4. Atualizar estoque de Blu-rays\n");
+                printf("5. Remover anime do estoque\n");
+                printf("6. Gerar relatorio do estoque\n");
+                printf("7. Voltar ao menu principal\n");
                 printf("--------------------------------------------\n");
                 printf("Escolha uma opcao: ");
-                scanf("%d", &op);
+                scanf("%d", &subOp);
 
-                switch (op)
+                switch (subOp)
                 {
                 case 1:
-                    // cadastrar Anime à Loteria
+                    // cadastrar anime
                     // aqui onde vamos adicionar o nome do anime e quantidade de blu-rays disponíveis
                     printf("adicionando anime...\n");
                     // chame a função cadastrarAnime(estoque, &totalAnimes)
@@ -62,27 +61,50 @@ int main()
                     break;
 
                 case 4:
-                    // entrada de blu-ray em estoque
-                    // aqui ele vai aumentar a quantidade de blu-rays de um anime já cadastrado
-                    printf("registrando entrada de unidade...\n");
-                    // chame a função entradaBluRay(estoque, totalAnimes)
+                    // atualizar estoque
+                    printf("atualizar estoque:\n");
+                    printf("1. entrada de Blu-ray\n");
+                    printf("2. saida de Blu-ray\n");
+
+                    int escolha;
+                    scanf("%d", &escolha);
+
+                    // vai verificar a escolha para entrada ou saída
+                    if (escolha == 1)
+                    {
+                        printf("registrando entrada de unidade...\n");
+                        // aqui será necessário buscar o anime no array e aumentar a quantidade de Blu-rays
+                        // vamos ter que fazer para buscar o anime e incrementar o estoque ainda será desenvolvido
+                    }
+                    else if (escolha == 2)
+                    {
+                        printf("registrando saida da unidade...\n");
+                        // aqui será necessário buscar o anime no array e diminuir a quantidade de Blu-rays
+                        // vamos ter que fazer buscar o anime e decrementar o estoque ainda será desenvolvido
+                    }
+                    else
+                    {
+
+                        printf("error...\n");
+                    }
                     break;
 
                 case 5:
-                    // saida de blu-ray em estoque
-                    // aqui ele vai reduzir a quantidade de blu-rays (unidades) em estoque
-                    printf("registrando saída da unidade...\n");
-                    // chame a função saidaBluRay(estoque, totalAnimes)
-                    break;
-
-                case 6:
-                    // Remover anime
+                    // remover anime
+                    // aqui ele vai remover o anime pelo nome ou codigo
                     printf("removendo anime...\n");
                     // chame a função removerAnime(estoque, &totalAnimes);
                     break;
 
+                case 6:
+                    // gerar relatorio
+                    // aqui só vai retornar quantidade de animes cadastrados
+                    printf("gerando relatorio de estoque...\n");
+                    // chame a função gerarRelatorio(estoque, totalAnimes)
+                    break;
+
                 case 7:
-                    printf("voltando ao menu...\n");
+                    printf("voltando ao menu principal...\n");
                     break;
 
                 default:
@@ -90,18 +112,10 @@ int main()
                     break;
                 }
 
-            } while (op != 6);
-
+            } while (subOp != 7);
             break;
 
         case 2:
-            // gerar relatorio do estoque de animes
-            // aqui ele vai exibir todos os animes cadastrados, quantidade de blu-rays, o estoque total e tudo meu parceiro
-            printf("gerando relatorio de estoque...\n");
-            // chame a função gerarRelatorio(estoque, totalAnimes)
-            break;
-
-        case 3:
             printf("saindo...\n");
             break;
 
@@ -109,7 +123,7 @@ int main()
             printf("error...\n");
             break;
         }
-    } while (op != 3);
+    } while (op != 2);
 
     return 0;
 }
