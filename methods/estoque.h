@@ -13,4 +13,6 @@ struct Anime {
 // ...
 void cadastrarAnime(struct Anime estoque[], int *totalAnimes);
 int consultarAnime(struct Anime estoque[], int totalAnimes);
+void editarAnime(struct Anime estoque[], int totalAnimes);
+
 #endif

@@ -93,3 +93,47 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
         return 0;
     }
 }
+
+void editarAnime(struct Anime estoque[], int totalAnimes) {
+    if (totalAnimes == 0) {
+        printf("O estoque esta vazio! Nada para editar.\n");
+        return;
+    }
+
+    int codigoBusca;
+    printf("Digite o codigo do anime que deseja editar: ");
+    scanf("%d", &codigoBusca);
+
+    for (int i = 0; i < totalAnimes; i++) {
+        if (estoque[i].codigo == codigoBusca) {
+            printf("\nAnime encontrado:\n");
+            printf("Codigo: %d\n", estoque[i].codigo);
+            printf("Nome atual: %s\n", estoque[i].nome);
+            printf("Quantidade atual de Blu-rays: %d\n", estoque[i].quantidadeBluRay);
+
+            char opcao;
+            printf("Deseja editar o nome do anime? (s/n): ");
+            scanf(" %c", &opcao);
+
+            if (opcao == 's' || opcao == 'S') {
+                printf("Digite o novo nome do anime: ");
+                scanf(" %[^\n]s", estoque[i].nome); // Lê a string com espaços
+                printf("Nome atualizado com sucesso!\n");
+            }
+
+            printf("Deseja editar a quantidade de Blu-rays? (s/n): ");
+            scanf(" %c", &opcao);
+
+            if (opcao == 's' || opcao == 'S') {
+                printf("Digite a nova quantidade de Blu-rays: ");
+                scanf("%d", &estoque[i].quantidadeBluRay);
+                printf("Quantidade de Blu-rays atualizada com sucesso!\n");
+            }
+
+            printf("\nEdicao concluida!\n");
+            return; // Sai da função após editar
+        }
+    }
+
+    printf("Nenhum anime encontrado com o codigo %d.\n", codigoBusca);
+}

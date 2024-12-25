@@ -60,14 +60,12 @@ int main()
 
                     do
                     {
-                       
+
                         if (consultarAnime(estoque, totalAnimes) != 0)
                         {
                             // Se retornar diferente de 0, o estoque esta vazio
-                            
                             break; // Sai do loop imediatamente
                         }
-
                         // Pergunta se o usuário deseja consultar outro anime
                         printf("Deseja consultar outro anime? (s/n): ");
                         scanf(" %c", &opcao); // Nota: espaço antes do %c para limpar o buffer
@@ -79,9 +77,14 @@ int main()
                     // editar anime
                     // aqui ele vai editar o nome do anime e a quantidade disponíveis
                     printf("editando anime...\n");
-                    // chame a função editarAnime(estoque, totalAnimes)
+                    char continuar;
+                    do
+                    {
+                        editarAnime(estoque, totalAnimes);
+                        printf("Deseja editar outro anime? (s/n): ");
+                        scanf(" %c", &continuar);
+                    } while (continuar != 'n');   
                     break;
-
                 case 4:
                     // atualizar estoque
                     printf("atualizar estoque:\n");
