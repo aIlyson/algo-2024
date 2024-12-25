@@ -118,7 +118,14 @@ int main()
                     // remover anime
                     // aqui ele vai remover o anime pelo nome ou codigo
                     printf("removendo anime...\n");
-                    removerAnime(estoque, &totalAnimes);
+                    char continuar;
+                    do
+                    {
+                        removerAnime(estoque, &totalAnimes);
+                        printf("Deseja remover outro anime? (s/n): ");
+                        scanf(" %c", &continuar);
+                    } while (continuar != 'n');
+                    
                     break;
 
                 case 6:
