@@ -90,12 +90,12 @@ int main()
 
                     printf("Atualizar estoque:\n");
                     printf("1. Entrada de Blu-rays\n");
-                    printf("2. Saída de Blu-rays\n");
+                    printf("2. Saida de Blu-rays\n");
 
                     int escolha, codigo, quantidade;
                     scanf("%d", &escolha);
 
-                    printf("Digite o código do anime: ");
+                    printf("Digite o codigo do anime: ");
                     scanf("%d", &codigo);
                     printf("Digite a quantidade: ");
                     scanf("%d", &quantidade);
@@ -110,7 +110,7 @@ int main()
                     }
                     else
                     {
-                        printf("Opção inválida.\n");
+                        printf("Opcao invalida.\n");
                     }
                     break;
 
@@ -118,7 +118,7 @@ int main()
                     // remover anime
                     // aqui ele vai remover o anime pelo nome ou codigo
                     printf("removendo anime...\n");
-                    char continuar;
+                    
                     do
                     {
                         removerAnime(estoque, &totalAnimes);

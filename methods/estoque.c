@@ -7,7 +7,7 @@ void cadastrarAnime(struct Anime estoque[], int *totalAnimes)
 {
     if (*totalAnimes >= 100)
     {
-        printf("Erro: Estoque cheio. Não eh possível cadastrar mais animes.\n");
+        printf("Erro: Estoque cheio. Não eh possivel cadastrar mais animes.\n");
         return;
     }
 
@@ -19,6 +19,12 @@ void cadastrarAnime(struct Anime estoque[], int *totalAnimes)
 
     printf("Digite a quantidade inicial de Blu-rays: ");
     scanf("%d", &novoAnime.quantidadeBluRay);
+
+    printf("digite o preco de compra: ");
+    scanf("%f", &novoAnime.precocompra);
+
+    printf("digite o preco de venda: ");
+    scanf("%f", &novoAnime.precovenda);
 
     // Gera o código automaticamente
     novoAnime.codigo = *totalAnimes + 1;
@@ -61,6 +67,8 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
                 printf("Codigo: %d\n", estoque[i].codigo);
                 printf("Nome: %s\n", estoque[i].nome);
                 printf("Quantidade de Blu-rays: %d\n", estoque[i].quantidadeBluRay);
+                printf("Preco de compra: %.2f\n", estoque[i].precocompra);
+                printf("Preco de venda: %.2f\n", estoque[i].precovenda);
                 return 0; // Sucesso: anime encontrado
             }
         }
@@ -81,6 +89,8 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
                 printf("Codigo: %d\n", estoque[i].codigo);
                 printf("Nome: %s\n", estoque[i].nome);
                 printf("Quantidade de Blu-rays: %d\n", estoque[i].quantidadeBluRay);
+                printf("Preco de compra: %.2f\n", estoque[i].precocompra);
+                printf("Preco de venda: %.2f\n", estoque[i].precovenda);
                 return 0; // Sucesso: anime encontrado
             }
         }
@@ -114,6 +124,8 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
             printf("Codigo: %d\n", estoque[i].codigo);
             printf("Nome atual: %s\n", estoque[i].nome);
             printf("Quantidade atual de Blu-rays: %d\n", estoque[i].quantidadeBluRay);
+            printf("Preco de compra atual: %.2f\n", estoque[i].precocompra);
+            printf("Preco de venda atual: %.2f\n", estoque[i].precovenda);
 
             char opcao;
             printf("Deseja editar o nome do anime? (s/n): ");
@@ -136,6 +148,24 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
                 printf("Quantidade de Blu-rays atualizada com sucesso!\n");
             }
 
+            printf("Deseja editar o preco de compra? (s/n): ");
+            scanf(" %c", &opcao);
+
+            if (opcao == 's' || opcao == 'S')
+            {
+                printf("Digite o novo preco de compra: ");
+                scanf("%f", &estoque[i].precocompra);
+                printf("Preco de compra atualizado com sucesso!\n");
+            }
+            printf("Deseja editar o preco de venda? (s/n): ");
+            scanf(" %c", &opcao);
+
+            if (opcao == 's' || opcao == 'S')
+            {
+                printf("Digite o novo preco de venda: ");
+                scanf("%f", &estoque[i].precovenda);
+                printf("Preco de venda atualizado com sucesso!\n");
+            }
             printf("\nEdicao concluida!\n");
             return; // Sai da função após editar
         }
@@ -143,10 +173,6 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
 
     printf("Nenhum anime encontrado com o codigo %d.\n", codigoBusca);
 }
-#include <stdio.h>
-#include <string.h>
-#include "estoque.h"
-
 void atualizarEstoque(struct Anime estoque[], int totalAnimes, int codigo, int quantidade, int entrada)
 {
     for (int i = 0; i < totalAnimes; i++)//percorre o estoque procurando o anime
@@ -169,36 +195,36 @@ void atualizarEstoque(struct Anime estoque[], int totalAnimes, int codigo, int q
                 }
                 else//se nao,mensagem de erro
                 {
-                    printf("Erro: Estoque insuficiente para o anime '%s'. Disponível: %d Blu-rays.\n",
+                    printf("Erro: Estoque insuficiente para o anime '%s'. Disponivel: %d Blu-rays.\n",
                            estoque[i].nome, estoque[i].quantidadeBluRay);
                 }
             }
             return; // Anime encontrado e estoque atualizado
         }
     }
-    printf("Erro: Anime com código %d não encontrado no estoque.\n", codigo);
+    printf("Erro: Anime com codigo %d nao encontrado no estoque.\n", codigo);
 }
 void removerAnime(struct Anime estoque[], int *totalAnimes) {
     if (*totalAnimes == 0) {
-        printf("O estoque está vazio!\n");
+        printf("O estoque esta vazio!\n");
         return;
     }
 
     int opcao;
     printf("Deseja buscar para remover por:\n");
-    printf("1. Código\n");
+    printf("1. Codigo\n");
     printf("2. Nome\n");
-    printf("Escolha uma opção: ");
+    printf("Escolha uma opcao: ");
     scanf("%d", &opcao);
 
     if (opcao == 1) {
         int codigoBusca;
-        printf("Digite o código do anime: ");
+        printf("Digite o codigo do anime: ");
         scanf("%d", &codigoBusca);
 
         for (int i = 0; i < *totalAnimes; i++) {
             if (estoque[i].codigo == codigoBusca) {
-                printf("Removendo o anime '%s' com código %d...\n", estoque[i].nome, estoque[i].codigo);
+                printf("Removendo o anime '%s' com codigo %d...\n", estoque[i].nome, estoque[i].codigo);
                 // Reorganiza o array para remover o elemento
                 for (int j = i; j < *totalAnimes - 1; j++) {
                     estoque[j] = estoque[j + 1];
@@ -208,7 +234,7 @@ void removerAnime(struct Anime estoque[], int *totalAnimes) {
                 return;
             }
         }
-        printf("Nenhum anime encontrado com o código %d.\n", codigoBusca);
+        printf("Nenhum anime encontrado com o codigo %d.\n", codigoBusca);
     } else if (opcao == 2) {
         char nomeBusca[100];
         printf("Digite o nome do anime: ");
@@ -228,25 +254,26 @@ void removerAnime(struct Anime estoque[], int *totalAnimes) {
         }
         printf("Nenhum anime encontrado com o nome '%s'.\n", nomeBusca);
     } else {
-        printf("Opção inválida.\n");
+        printf("Opçao invalida.\n");
     }
 }
 void gerarRelatorio(struct Anime estoque[], int totalAnimes) {
     if (totalAnimes == 0) {
-        printf("O estoque está vazio!\n");
+        printf("O estoque esta vazio!\n");
         return;
     }
 
-    printf("\nRelatório de Estoque:\n");
+    printf("\nRelatorio de Estoque:\n");
     printf("----------------------\n");
     for (int i = 0; i < totalAnimes; i++) {
         printf("Anime %d:\n", i + 1);
-        printf("  Código: %d\n", estoque[i].codigo);
+        printf("  Codigo: %d\n", estoque[i].codigo);
         printf("  Nome: %s\n", estoque[i].nome);
         printf("  Quantidade de Blu-rays: %d\n", estoque[i].quantidadeBluRay);
+        printf("  Preco de compra: %.2f\n", estoque[i].precocompra);
+        printf("  Preco de venda: %.2f\n", estoque[i].precovenda);
         printf("----------------------\n");
     }
     printf("Quantidade total de animes cadastrados: %d\n", totalAnimes);
 }
-
 

@@ -7,6 +7,9 @@ struct Anime {
     char nome[100];
     int quantidadeBluRay;
     int codigo;
+    float precocompra;
+    float precovenda;
+    
 };
 
 // função para os animes fica abaixo
