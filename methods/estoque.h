@@ -20,4 +20,5 @@ void editarAnime(struct Anime estoque[], int totalAnimes);
 void atualizarEstoque(struct Anime estoque[], int totalAnimes, int codigo, int quantidade, int entrada);
 void removerAnime(struct Anime estoque[], int *totalAnimes);
 void gerarRelatorio(struct Anime estoque[], int totalAnimes);
+void realizarvenda(struct Anime estoque[],int totalAnimes,float *caixa);
 #endif
