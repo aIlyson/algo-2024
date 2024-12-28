@@ -11,33 +11,44 @@ int main()
     do
     {
         printf("\n*** MENU PRINCIPAL ***\n");
-        printf("-------------------------------------------\n");
+        printf("=======================================\n");
+        printf("0. Sair\n");
         printf("1. Gerenciar estoque de animes\n");
-        printf("2. Sair\n");
-        printf("-------------------------------------------\n");
+        printf("=======================================\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &op);
 
         switch (op)
         {
+        case 0:
+            // sair do programa
+            printf("Saindo...\n");
+            break;
+
         case 1:
             do
             {
                 printf("\n*** MENU DE GESTAO DE ESTOQUE DE ANIMES ***\n");
-                printf("--------------------------------------------\n");
+                printf("============================================\n");
+                printf("0. Voltar ao menu principal\n");
                 printf("1. Adicionar anime\n");
                 printf("2. Consultar anime\n");
                 printf("3. Editar anime\n");
                 printf("4. Atualizar estoque de Blu-rays\n");
                 printf("5. Remover anime do estoque\n");
                 printf("6. Gerar relatorio do estoque\n");
-                printf("7. Voltar ao menu principal\n");
-                printf("--------------------------------------------\n");
+                printf("============================================\n");
                 printf("Escolha uma opcao: ");
                 scanf("%d", &subOp);
 
                 switch (subOp)
                 {
+                case 0:
+                    // voltar ao menu principal
+                    printf("Voltando ao menu principal...\n");
+                    system("cls");
+                    break;
+
                 case 1:
                     // cadastrar anime
                     printf("Adicionando anime...\n");
@@ -45,11 +56,8 @@ int main()
                     char opcao;
                     while (opcao != 'n')
                     {
-                        // A função 'cadastrarAnime' agora retorna o novo valor de 'totalAnimes'.
-                        // assim, precisamos capturar esse valor retornado e atualizá-lo,
-                        // pois 'totalAnimes' foi passado por valor para a função, e ela retorna
-                        // o valor atualizado de 'totalAnimes' após o cadastro do anime.
-                        totalAnimes = cadastrarAnime(estoque, totalAnimes); // atualiza 'totalAnimes' com o valor retornado
+                        totalAnimes = cadastrarAnime(estoque, totalAnimes); // atualiza 'totalAnimes'
+
                         printf("Deseja cadastrar outro anime? (s/n): ");
                         scanf(" %c", &opcao);
                     }
@@ -62,7 +70,6 @@ int main()
 
                     do
                     {
-                        // verifica se o estoque esta vazio
                         if (consultarAnime(estoque, totalAnimes) != 0)
                         {
                             break;
@@ -113,7 +120,6 @@ int main()
                     {
                         printf("error... Numero invalido\n");
                     }
-                    system("cls");
                     break;
 
                 case 5:
@@ -135,29 +141,18 @@ int main()
                     gerarRelatorio(estoque, totalAnimes);
                     break;
 
-                case 7:
-                    // voltar ao menu principal
-                    printf("Voltando ao menu principal...\n");
-                    system("cls");
-                    break;
-
                 default:
                     printf("error... Numero invalido\n");
                     break;
                 }
-            } while (subOp != 7); // volta ao menu principal
-            break;
-
-        case 2:
-            // sair do programa
-            printf("Saindo...\n");
+            } while (subOp != 0); // volta ao menu principal
             break;
 
         default:
             printf("error... Numero invalido\n");
             break;
         }
-    } while (op != 2); // encerra o programa
+    } while (op != 0); // encerra o programa
 
     return 0;
 }
