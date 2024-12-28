@@ -146,7 +146,7 @@ int main()
                             }
                             else
                             {
-                                printf("Não há mais animes para remover.\n");
+                                printf("Nao ha animes cadastrados! Nada para remover.\n");
                                 continuar = 'n';
                             }
                         } while (continuar != 'n');
