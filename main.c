@@ -3,9 +3,8 @@
 
 int main()
 {
-    // TODO: lembrar de definir o tamanho do array
     struct Anime estoque[100];
-    int totalAnimes = 0; // contador de animes cadastrados
+    int totalAnimes = 0;
     int op, subOp;
 
     do
@@ -41,8 +40,8 @@ int main()
                 {
                 case 1:
                     // cadastrar anime
-                    // aqui onde vamos adicionar o nome do anime e quantidade de blu-rays disponíveis
-                    printf("adicionando anime...\n");
+                    printf("Adicionando anime...\n");
+
                     char opcao;
                     while (opcao != 'n')
                     {
@@ -55,28 +54,26 @@ int main()
 
                 case 2:
                     // consultar anime
-                    // aqui ele vai buscar o anime pelo nome ou código e exibir suas informações
-                    printf("consultando anime...\n");
+                    printf("Consultando anime...\n");
 
                     do
                     {
 
+                        // verifica se o estoque esta vazio
                         if (consultarAnime(estoque, totalAnimes) != 0)
                         {
-                            // Se retornar diferente de 0, o estoque esta vazio
-                            break; // Sai do loop imediatamente
+                            break;
                         }
-                        // Pergunta se o usuário deseja consultar outro anime
+
                         printf("Deseja consultar outro anime? (s/n): ");
-                        scanf(" %c", &opcao); // Nota: espaço antes do %c para limpar o buffer
-                    } while (opcao == 's'); // Continua enquanto o usuário quiser
+                        scanf(" %c", &opcao);
+                    } while (opcao == 's');
 
                     break;
 
                 case 3:
                     // editar anime
-                    // aqui ele vai editar o nome do anime e a quantidade disponíveis
-                    printf("editando anime...\n");
+                    printf("Editando anime...\n");
                     char continuar;
                     do
                     {
@@ -85,17 +82,17 @@ int main()
                         scanf(" %c", &continuar);
                     } while (continuar != 'n');
                     break;
+
                 case 4:
                     // atualizar estoque
-
-                    printf("Atualizar estoque:\n");
+                    printf("Atualizar estoque de Blu-rays:\n");
                     printf("1. Entrada de Blu-rays\n");
                     printf("2. Saída de Blu-rays\n");
 
                     int escolha, codigo, quantidade;
                     scanf("%d", &escolha);
 
-                    printf("Digite o código do anime: ");
+                    printf("Digite o codigo do anime: ");
                     scanf("%d", &codigo);
                     printf("Digite a quantidade: ");
                     scanf("%d", &quantidade);
@@ -110,52 +107,51 @@ int main()
                     }
                     else
                     {
-                        printf("Opção inválida.\n");
+                        printf("error... Numero invalido\n");
                     }
                     break;
 
                 case 5:
-                    // remover anime
-                    // aqui ele vai remover o anime pelo nome ou codigo
-                    printf("removendo anime...\n");
-                    char continuar;
+                    //  remover anime
+                    printf("Removendo anime...\n");
+
                     do
                     {
                         removerAnime(estoque, &totalAnimes);
                         printf("Deseja remover outro anime? (s/n): ");
                         scanf(" %c", &continuar);
                     } while (continuar != 'n');
-                    
+
                     break;
 
                 case 6:
-                    // gerar relatorio
-                    // aqui só vai retornar quantidade de animes cadastrados
-                    printf("gerando relatorio de estoque...\n");
+                    // gerar relatório
+                    printf("Gerando relatório de estoque...\n");
                     gerarRelatorio(estoque, totalAnimes);
                     break;
 
                 case 7:
-                    printf("voltando ao menu principal...\n");
+                    // voltar ao menu principal
+                    printf("Voltando ao menu principal...\n");
                     break;
 
                 default:
-                    printf("error...\n");
+                    printf("error... Numero invalido\n");
                     break;
                 }
-
-            } while (subOp != 7);
+            } while (subOp != 7); // volta ao menu principal
             break;
 
         case 2:
-            printf("saindo...\n");
+            // sair do programa
+            printf("Saindo...\n");
             break;
 
         default:
-            printf("error...\n");
+            printf("error... Numero invalido\n");
             break;
         }
-    } while (op != 2);
+    } while (op != 2); // encerra o programa
 
     return 0;
 }
