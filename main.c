@@ -126,13 +126,32 @@ int main()
                     // remover anime
                     printf("Removendo anime...\n");
 
-                    do
+                    // verifica se tem animes antes
+                    if (totalAnimes == 0)
                     {
-                        totalAnimes = removerAnime(estoque, totalAnimes);
-                        printf("Deseja remover outro anime? (s/n): ");
-                        scanf(" %c", &continuar);
-                    } while (continuar != 'n');
-                    system("cls");
+                        printf("Nao ha animes cadastrados! Nada para remover.\n");
+                    }
+                    else
+                    {
+                        do
+                        {
+                            totalAnimes = removerAnime(estoque, totalAnimes);
+
+                            // verifica se tem animes restantes
+                            if (totalAnimes > 0)
+                            {
+                                printf("Animes restantes no estoque: %d\n", totalAnimes);
+                                printf("Deseja remover outro anime? (s/n): ");
+                                scanf(" %c", &continuar);
+                            }
+                            else
+                            {
+                                printf("Não há mais animes para remover.\n");
+                                continuar = 'n';
+                            }
+                        } while (continuar != 'n');
+                    }
+
                     break;
 
                 case 6:
