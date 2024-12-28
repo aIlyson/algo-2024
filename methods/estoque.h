@@ -10,11 +10,11 @@ struct Anime
 };
 
 // funções
-void cadastrarAnime(struct Anime estoque[], int *totalAnimes);
+int cadastrarAnime(struct Anime estoque[], int totalAnimes);
 int consultarAnime(struct Anime estoque[], int totalAnimes);
 void editarAnime(struct Anime estoque[], int totalAnimes);
 void atualizarEstoque(struct Anime estoque[], int totalAnimes, int codigo, int quantidade, int entrada);
-void removerAnime(struct Anime estoque[], int *totalAnimes);
+int removerAnime(struct Anime estoque[], int totalAnimes);
 void gerarRelatorio(struct Anime estoque[], int totalAnimes);
 
 #endif

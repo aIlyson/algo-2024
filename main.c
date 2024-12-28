@@ -45,7 +45,11 @@ int main()
                     char opcao;
                     while (opcao != 'n')
                     {
-                        cadastrarAnime(estoque, &totalAnimes);
+                        // A função 'cadastrarAnime' agora retorna o novo valor de 'totalAnimes'.
+                        // assim, precisamos capturar esse valor retornado e atualizá-lo,
+                        // pois 'totalAnimes' foi passado por valor para a função, e ela retorna
+                        // o valor atualizado de 'totalAnimes' após o cadastro do anime.
+                        totalAnimes = cadastrarAnime(estoque, totalAnimes); // atualiza 'totalAnimes' com o valor retornado
                         printf("Deseja cadastrar outro anime? (s/n): ");
                         scanf(" %c", &opcao);
                     }
@@ -113,12 +117,12 @@ int main()
                     break;
 
                 case 5:
-                    //  remover anime
+                    // remover anime
                     printf("Removendo anime...\n");
 
                     do
                     {
-                        removerAnime(estoque, &totalAnimes);
+                        totalAnimes = removerAnime(estoque, totalAnimes);
                         printf("Deseja remover outro anime? (s/n): ");
                         scanf(" %c", &continuar);
                     } while (continuar != 'n');

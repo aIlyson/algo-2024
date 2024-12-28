@@ -3,13 +3,13 @@
 #include "estoque.h"
 
 // funções
-void cadastrarAnime(struct Anime estoque[], int *totalAnimes)
+int cadastrarAnime(struct Anime estoque[], int totalAnimes)
 {
-    // verifica se o estoque esta cheio
-    if (*totalAnimes >= 100) // limitei para 100
+    // verifica se o estoque está cheio
+    if (totalAnimes >= 100) // limitei para 100
     {
         printf("Capacidade maxima atingida!\n");
-        return;
+        return totalAnimes;
     }
 
     struct Anime novoAnime;
@@ -20,16 +20,19 @@ void cadastrarAnime(struct Anime estoque[], int *totalAnimes)
     printf("Digite a quantidade inicial de Blu-rays: ");
     scanf("%d", &novoAnime.quantidadeBluRay);
 
-    // gera um codigo para o novo anime
-    novoAnime.codigo = *totalAnimes + 1;
+    // gera um código para o novo anime
+    novoAnime.codigo = totalAnimes + 1;
 
     // adiciona o novo anime e incrementa o contador
-    estoque[*totalAnimes] = novoAnime;
+    estoque[totalAnimes] = novoAnime;
 
-    (*totalAnimes)++;
+    totalAnimes++;
 
     printf("Anime cadastrado! Codigo: %d\n", novoAnime.codigo);
+
+    return totalAnimes;
 }
+
 int consultarAnime(struct Anime estoque[], int totalAnimes)
 {
     // verifica se o estoque esta vazio
@@ -194,18 +197,18 @@ void atualizarEstoque(struct Anime estoque[], int totalAnimes, int codigo, int q
     printf("Nenhum anime encontrado com o codigo %d.\n", codigo);
 }
 
-void removerAnime(struct Anime estoque[], int *totalAnimes)
+int removerAnime(struct Anime estoque[], int totalAnimes)
 {
-    // verifica se o estoque esta vazio
-    if (*totalAnimes == 0)
+    // verifica se o estoque está vazio
+    if (totalAnimes == 0)
     {
         printf("Nao ha animes cadastrados! Nada para remover.\n");
-        return;
+        return totalAnimes;
     }
 
     int opcao;
 
-    // menu de opcoes
+    // menu de opções
     printf("Deseja buscar para remover por:\n");
     printf("1. Codigo\n");
     printf("2. Nome\n");
@@ -219,21 +222,21 @@ void removerAnime(struct Anime estoque[], int *totalAnimes)
         printf("Digite o codigo do anime: ");
         scanf("%d", &codigoBusca);
 
-        for (int i = 0; i < *totalAnimes; i++)
+        for (int i = 0; i < totalAnimes; i++)
         {
             if (estoque[i].codigo == codigoBusca)
             {
                 printf("Removendo o anime '%s' com codigo %d...\n", estoque[i].nome, estoque[i].codigo);
 
                 // remove o elemento do array e reorganiza
-                for (int j = i; j < *totalAnimes - 1; j++)
+                for (int j = i; j < totalAnimes - 1; j++)
                 {
                     estoque[j] = estoque[j + 1];
                 }
-                (*totalAnimes)--;
+                totalAnimes--;
 
                 printf("Anime removido!\n");
-                return;
+                return totalAnimes;
             }
         }
         printf("Nenhum anime encontrado com o codigo %d.\n", codigoBusca);
@@ -245,29 +248,31 @@ void removerAnime(struct Anime estoque[], int *totalAnimes)
         printf("Digite o nome do anime: ");
         scanf(" %[^\n]s", nomeBusca); // le a string com espaços
 
-        for (int i = 0; i < *totalAnimes; i++)
+        for (int i = 0; i < totalAnimes; i++)
         {
             if (strcmp(estoque[i].nome, nomeBusca) == 0)
             {
-                printf("Removendo o anime '%s' com codigo %d...\n", estoque[i].nome, estoque[i].codigo);
+                printf("Removendo o anime '%s' com código %d...\n", estoque[i].nome, estoque[i].codigo);
 
                 // remove o elemento do array e reorganiza
-                for (int j = i; j < *totalAnimes - 1; j++)
+                for (int j = i; j < totalAnimes - 1; j++)
                 {
                     estoque[j] = estoque[j + 1];
                 }
-                (*totalAnimes)--;
+                totalAnimes--;
 
                 printf("Anime removido!\n");
-                return;
+                return totalAnimes;
             }
         }
         printf("Nenhum anime encontrado com o nome '%s'.\n", nomeBusca);
     }
     else
     {
-        printf("error... numero invalido\n");
+        printf("Erro... número inválido.\n");
     }
+
+    return totalAnimes;
 }
 
 void gerarRelatorio(struct Anime estoque[], int totalAnimes)
