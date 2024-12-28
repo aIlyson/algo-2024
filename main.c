@@ -7,9 +7,9 @@ int main()
     struct Anime estoque[100];
     int totalAnimes = 0;
     int op, subOp;
-    float caixa = 0.0;
 
-    do {
+    do
+    {
         printf("\n*** MENU PRINCIPAL ***\n");
         printf("-------------------------------------------\n");
         printf("1. Gerenciar estoque de animes\n");
@@ -18,9 +18,11 @@ int main()
         printf("Escolha uma opcao: ");
         scanf("%d", &op);
 
-        switch (op) {
+        switch (op)
+        {
         case 1:
-            do {
+            do
+            {
                 printf("\n*** MENU DE GESTAO DE ESTOQUE DE ANIMES ***\n");
                 printf("--------------------------------------------\n");
                 printf("1. Adicionar anime\n");
@@ -29,8 +31,7 @@ int main()
                 printf("4. Atualizar estoque de Blu-rays\n");
                 printf("5. Remover anime do estoque\n");
                 printf("6. Gerar relatorio do estoque\n");
-                printf("7. Realizar venda de Blu-rays\n");
-                printf("8. Voltar ao menu principal\n");
+                printf("7. Voltar ao menu principal\n");
                 printf("--------------------------------------------\n");
                 printf("Escolha uma opcao: ");
                 scanf("%d", &subOp);
@@ -57,7 +58,6 @@ int main()
 
                     do
                     {
-
                         // verifica se o estoque esta vazio
                         if (consultarAnime(estoque, totalAnimes) != 0)
                         {
@@ -88,6 +88,8 @@ int main()
                     printf("Atualizar estoque de Blu-rays:\n");
                     printf("1. Entrada de Blu-rays\n");
                     printf("2. Saida de Blu-rays\n");
+
+                    int escolha, codigo, quantidade;
                     scanf("%d", &escolha);
 
                     printf("Digite o codigo do anime: ");
@@ -95,12 +97,13 @@ int main()
                     printf("Digite a quantidade: ");
                     scanf("%d", &quantidade);
 
-                    if (escolha == 1) {
+                    if (escolha == 1)
+                    {
                         atualizarEstoque(estoque, totalAnimes, codigo, quantidade, 1);
-                    } else if (escolha == 2) {
+                    }
+                    else if (escolha == 2)
+                    {
                         atualizarEstoque(estoque, totalAnimes, codigo, quantidade, 0);
-                    } else {
-                        printf("Opcao invalida.\n");
                     }
                     else
                     {
@@ -119,7 +122,7 @@ int main()
                         scanf(" %c", &continuar);
                     } while (continuar != 'n');
                     break;
-                }
+
                 case 6:
                     // gerar relatório
                     printf("Gerando relatório de estoque...\n");
@@ -130,16 +133,19 @@ int main()
                     // voltar ao menu principal
                     printf("Voltando ao menu principal...\n");
                     break;
+
                 default:
                     printf("error... Numero invalido\n");
                     break;
                 }
             } while (subOp != 7); // volta ao menu principal
             break;
+
         case 2:
             // sair do programa
             printf("Saindo...\n");
             break;
+
         default:
             printf("error... Numero invalido\n");
             break;
