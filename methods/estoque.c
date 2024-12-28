@@ -158,48 +158,60 @@ void atualizarEstoque(struct Anime estoque[], int totalAnimes, int codigo, int q
         return;
     }
 
-    // busca pelo anime pelo codigo
+    // verifica se a quantidade e válida
+    if (quantidade <= 0)
+    {
+        printf("error... Numero de Blu-rays invalido\n");
+        return;
+    }
+
+    // busca pelo codigo
     for (int i = 0; i < totalAnimes; i++)
     {
         if (estoque[i].codigo == codigo)
         {
+            int quantidadeAnterior = estoque[i].quantidadeBluRay; // salva a quantidade anterior
+
+            printf("Anime: '%s'\n", estoque[i].nome);
+
             if (entrada == 1)
             {
-                // operacao de entrada no estoque
+                // operacao de entrada
                 estoque[i].quantidadeBluRay += quantidade;
-                printf("Adicionadas %d unidades ao estoque do anime '%s'. Novo total: %d Blu-rays.\n",
-                       quantidade, estoque[i].nome, estoque[i].quantidadeBluRay);
+                printf("Quantidade anterior: %d Blu-rays.\nQuantidade nova: %d Blu-rays (Adicionadas %d unidades).\n",
+                       quantidadeAnterior, estoque[i].quantidadeBluRay, quantidade);
             }
             else if (entrada == 0)
             {
-                // operacao de saída do estoque
+                // operacao de saida
                 if (estoque[i].quantidadeBluRay >= quantidade)
                 {
                     estoque[i].quantidadeBluRay -= quantidade;
-                    printf("Removidas %d unidades do estoque do anime '%s'. Novo total: %d Blu-rays.\n",
-                           quantidade, estoque[i].nome, estoque[i].quantidadeBluRay);
+                    printf("Quantidade anterior: %d Blu-rays.\nQuantidade nova: %d Blu-rays (Removidas %d unidades).\n",
+                           quantidadeAnterior, estoque[i].quantidadeBluRay, quantidade);
                 }
                 else
                 {
-                    printf("error... Estoque insuficiente para o anime '%s'. Disponível: %d Blu-rays.\n",
+                    // verifica se tem estoque suficiente no anime
+                    printf("error... Nao ha quantidade suficiente no anime '%s'. Disponivel: %d Blu-rays.\n",
                            estoque[i].nome, estoque[i].quantidadeBluRay);
                 }
             }
             else
             {
-                printf("error... numero invalido\n");
+                printf("error... Numero invalido\n");
             }
+
             return;
         }
     }
 
-    // caso não encontre o anime
     printf("Nenhum anime encontrado com o codigo %d.\n", codigo);
 }
 
 int removerAnime(struct Anime estoque[], int totalAnimes)
 {
-    // verifica se o estoque está vazio
+    // verifica se o estoque esta vazio
     if (totalAnimes == 0)
     {
         printf("Nao ha animes cadastrados! Nada para remover.\n");
@@ -208,7 +220,7 @@ int removerAnime(struct Anime estoque[], int totalAnimes)
 
     int opcao;
 
-    // menu de opções
+    // menu de opcoes
     printf("Deseja buscar para remover por:\n");
     printf("1. Codigo\n");
     printf("2. Nome\n");
@@ -285,7 +297,7 @@ void gerarRelatorio(struct Anime estoque[], int totalAnimes)
     }
 
     printf("\nRelatorio de Estoque:\n");
-    printf("----------------------\n");
+    printf("============================================\n");
 
     // cabecalho
     printf("Codigo || Nome || Quantidade de Blu-rays\n");
@@ -300,6 +312,6 @@ void gerarRelatorio(struct Anime estoque[], int totalAnimes)
         }
     }
 
-    printf("----------------------\n");
+    printf("============================================\n");
     printf("Quantidade total de animes cadastrados: %d\n", totalAnimes);
 }
