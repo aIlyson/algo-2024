@@ -282,15 +282,19 @@ void gerarRelatorio(struct Anime estoque[], int totalAnimes)
     printf("\nRelatorio de Estoque:\n");
     printf("----------------------\n");
 
-    // imprime os animes
+    // cabecalho
+    printf("Codigo || Nome || Quantidade de Blu-rays\n");
+    printf("------------------------------------------\n");
+
+    // imprime o estoque
     for (int i = 0; i < totalAnimes; i++)
     {
-        printf("Anime %d:\n", i + 1);
-        printf("  Codigo: %d\n", estoque[i].codigo);
-        printf("  Nome: %s\n", estoque[i].nome);
-        printf("  Quantidade de Blu-rays: %d\n", estoque[i].quantidadeBluRay);
-        printf("----------------------\n");
+        for (int j = 0; j < 1; j++)
+        {
+            printf("%d || %s || %d\n", estoque[i].codigo, estoque[i].nome, estoque[i].quantidadeBluRay);
+        }
     }
 
+    printf("----------------------\n");
     printf("Quantidade total de animes cadastrados: %d\n", totalAnimes);
 }

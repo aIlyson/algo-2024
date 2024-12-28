@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "methods/estoque.h"
 #include <stdlib.h>
+#include "methods/estoque.h"
 
 int main()
 {
@@ -67,7 +67,7 @@ int main()
                         printf("Deseja consultar outro anime? (s/n): ");
                         scanf(" %c", &opcao);
                     } while (opcao == 's');
-
+                    system("cls");
                     break;
 
                 case 3:
@@ -109,6 +109,7 @@ int main()
                     {
                         printf("error... Numero invalido\n");
                     }
+                    system("cls");
                     break;
 
                 case 5:
@@ -121,17 +122,19 @@ int main()
                         printf("Deseja remover outro anime? (s/n): ");
                         scanf(" %c", &continuar);
                     } while (continuar != 'n');
+                    system("cls");
                     break;
 
                 case 6:
                     // gerar relatório
-                    printf("Gerando relatório de estoque...\n");
+                    printf("Gerando relatorio de estoque...\n");
                     gerarRelatorio(estoque, totalAnimes);
                     break;
 
                 case 7:
                     // voltar ao menu principal
                     printf("Voltando ao menu principal...\n");
+                    system("cls");
                     break;
 
                 default:
