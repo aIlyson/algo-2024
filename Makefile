@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Wpedantic -Wshadow -Wformat=2 -Wcast-align -Wconversion -Wsign-conversion -Wnull-dereference -g3 -O0
-SOURCES = main.c methods/estoque.c
+SOURCES = main.c methods/estoque.c methods/financeiro.c
 OBJECTS = $(SOURCES:.c=.o)
 TARGET = build/Debug/outDebug.exe
 

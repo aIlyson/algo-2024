@@ -63,6 +63,7 @@
     "*.css": "css",
     "estoque.h": "c",
     "stdio.h": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "financeiro.h": "c"
   }
 }

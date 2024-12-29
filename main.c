@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "methods/estoque.h"
+#include "methods/financeiro.h"
 
 int main()
 {
@@ -14,6 +15,7 @@ int main()
         printf("=======================================\n");
         printf("0. Sair\n");
         printf("1. Gerenciar estoque de animes\n");
+        printf("2. Gerenciar vendas de animes\n");
         printf("=======================================\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &op);
@@ -158,6 +160,46 @@ int main()
                     // gerar relatório
                     printf("Gerando relatorio de estoque...\n");
                     gerarRelatorio(estoque, totalAnimes);
+                    break;
+
+                default:
+                    printf("Error... Opcao invalida!\n");
+                    break;
+                }
+            } while (subOp != 0); // volta ao menu principal
+            break;
+
+        case 2:
+            do
+            {
+                printf("\n*** MENU DE GESTAO FINANCEIRO ***\n");
+                printf("====================================\n");
+                printf("0. Voltar ao menu principal\n");
+                printf("1. Realizar venda\n");
+                printf("2. Gerar relatorio de financeiro\n");
+                printf("====================================\n");
+                printf("Escolha uma opcao: ");
+                scanf("%d", &subOp);
+
+                switch (subOp)
+                {
+                case 0:
+                    // voltar ao menu principal
+                    printf("Voltando ao menu principal...\n");
+                    system("cls");
+                    break;
+
+                case 1:
+                    // cadastrar venda
+                    printf("Realizando venda...\n");
+                    // funcao cadastrarVenda()
+                    system("cls");
+                    break;
+
+                case 2:
+                    // gerar relatório
+                    printf("Gerando relatorio de vendas...\n");
+                    // funcao gerarRelatorio()
                     break;
 
                 default:
