@@ -118,7 +118,7 @@ int main()
                     }
                     else
                     {
-                        printf("error... Numero invalido\n");
+                        printf("Error... Opcao invalida!\n");
                     }
                     break;
 
@@ -161,14 +161,14 @@ int main()
                     break;
 
                 default:
-                    printf("error... Numero invalido\n");
+                    printf("Error... Opcao invalida!\n");
                     break;
                 }
             } while (subOp != 0); // volta ao menu principal
             break;
 
         default:
-            printf("error... Numero invalido\n");
+            printf("Error... Opcao invalida!\n");
             break;
         }
     } while (op != 0); // encerra o programa

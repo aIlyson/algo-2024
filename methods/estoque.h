@@ -4,9 +4,11 @@
 // estrutura de animes
 struct Anime
 {
+    int IDanime;
     char nome[100];
+    char genero[100];
+    float preco;
     int quantidadeBluRay;
-    int codigo;
 };
 
 // funções
