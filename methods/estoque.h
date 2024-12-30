@@ -7,7 +7,8 @@ struct Anime
     int IDanime;
     char nome[100];
     char genero[100];
-    float preco;
+    float precodecompra;
+    float precodevenda;
     int quantidadeBluRay;
 };
 

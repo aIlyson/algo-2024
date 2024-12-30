@@ -23,8 +23,11 @@ int cadastrarAnime(struct Anime estoque[], int totalAnimes)
     printf("Digite o genero do anime: ");
     scanf(" %[^\n]", novoAnime.genero);
 
-    printf("Digite o preco do anime: ");
-    scanf("%f", &novoAnime.preco);
+    printf("Digite o preco de compra do anime: ");
+    scanf("%f", &novoAnime.precodecompra);
+
+    printf("Digite o preco de venda do anime: ");
+    scanf("%f", &novoAnime.precodevenda);
 
     printf("Digite a quantidade inicial de Blu-rays: ");
     scanf("%d", &novoAnime.quantidadeBluRay);
@@ -70,7 +73,8 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
                 printf("ID: %d\n", estoque[i].IDanime);
                 printf("Nome: %s\n", estoque[i].nome);
                 printf("Genero: %s\n", estoque[i].genero);
-                printf("Preco: %.2f\n", estoque[i].preco);
+                printf("Preco: %.2f\n", estoque[i].precodecompra);
+                printf("Preco: %.2f\n", estoque[i].precodevenda);
                 printf("Quantidade de Blu-rays: %d\n", estoque[i].quantidadeBluRay);
                 return 0;
             }
@@ -92,7 +96,8 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
                 printf("ID: %d\n", estoque[i].IDanime);
                 printf("Nome: %s\n", estoque[i].nome);
                 printf("Genero: %s\n", estoque[i].genero);
-                printf("Preco: %.2f\n", estoque[i].preco);
+                printf("Preco: %.2f\n", estoque[i].precodecompra);
+                printf("Preco: %.2f\n", estoque[i].precodevenda);
                 printf("Quantidade de Blu-rays: %d\n", estoque[i].quantidadeBluRay);
                 return 0;
             }
@@ -128,7 +133,8 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
             printf("ID: %d\n", estoque[i].IDanime);
             printf("Nome atual: %s\n", estoque[i].nome);
             printf("Genero atual: %s\n", estoque[i].genero);
-            printf("Preco atual: %.2f\n", estoque[i].preco);
+            printf("Preco atual: %.2f\n", estoque[i].precodecompra);
+            printf("Preco atual: %.2f\n", estoque[i].precodevenda);
             printf("Quantidade atual de Blu-rays: %d\n", estoque[i].quantidadeBluRay);
 
             char opcao;
@@ -151,12 +157,21 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
                 printf("Genero atualizado!\n");
             }
 
-            printf("Deseja editar o preco do anime? (s/n): ");
+            printf("Deseja editar o preco de compra do anime? (s/n): ");
             scanf(" %c", &opcao);
             if (opcao == 's' || opcao == 'S')
             {
                 printf("Digite o novo preco do anime: ");
-                scanf("%f", &estoque[i].preco);
+                scanf("%f", &estoque[i].precodecompra);
+                printf("Preco atualizado!\n");
+            }
+
+            printf("Deseja editar o preco de venda do anime? (s/n): ");
+            scanf(" %c", &opcao);
+            if (opcao == 's' || opcao == 'S')
+            {
+                printf("Digite o novo preco do anime: ");
+                scanf("%f", &estoque[i].precodevenda);
                 printf("Preco atualizado!\n");
             }
 
@@ -340,7 +355,8 @@ void gerarRelatorio(struct Anime estoque[], int totalAnimes)
                estoque[i].IDanime,
                estoque[i].nome,
                estoque[i].genero,
-               estoque[i].preco,
+               estoque[i].precodecompra,
+               estoque[i].precodevenda,
                estoque[i].quantidadeBluRay);
     }
 
