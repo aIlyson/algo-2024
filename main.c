@@ -190,16 +190,19 @@ int main()
                     break;
 
                 case 1:
-                    // cadastrar venda
+                    // realizar venda
                     printf("Realizando venda...\n");
-                    // funcao cadastrarVenda()
+                    // funcao realizarVenda()
+                    realizarVenda(estoque, totalAnimes, 0, 0);
                     system("cls");
                     break;
 
                 case 2:
                     // gerar relatório
                     printf("Gerando relatorio de vendas...\n");
+
                     // funcao gerarRelatorio()
+                    gerarRelatorioFinanceiro(estoque, totalAnimes);
                     break;
 
                 default:

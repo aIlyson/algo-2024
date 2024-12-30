@@ -351,7 +351,7 @@ void gerarRelatorio(struct Anime estoque[], int totalAnimes)
     // imprime o estoque
     for (int i = 0; i < totalAnimes; i++)
     {
-        printf("%d || %s || %s || %.2f Reais || %d\n",
+        printf("%d || %s || %s || %.2f Reais ||%.2f Reais || %d\n",
                estoque[i].IDanime,
                estoque[i].nome,
                estoque[i].genero,
