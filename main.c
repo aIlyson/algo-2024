@@ -87,13 +87,21 @@ int main()
                     // editar anime
                     printf("Editando anime...\n");
                     char continuar;
-                    do
+
+                    // verifica se tem animes antes
+                    if (totalAnimes == 0)
                     {
-                        editarAnime(estoque, totalAnimes);
-                        printf("Deseja editar outro anime? (s/n): ");
-                        scanf(" %c", &continuar);
-                    } while (continuar != 'n');
-                    system("cls");
+                        printf("Nao ha animes cadastrados! Nada para editar.\n");
+                    }
+                    else
+                    {
+                        do
+                        {
+                            editarAnime(estoque, totalAnimes);
+                            printf("Deseja editar outro anime? (s/n): ");
+                            scanf(" %c", &continuar);
+                        } while (continuar != 'n');
+                    }
                     break;
 
                 case 4:
@@ -153,7 +161,6 @@ int main()
                             }
                         } while (continuar != 'n');
                     }
-
                     break;
 
                 case 6:
@@ -192,16 +199,12 @@ int main()
                 case 1:
                     // realizar venda
                     printf("Realizando venda...\n");
-                    // funcao realizarVenda()
                     realizarVenda(estoque, totalAnimes, 0, 0);
-                    system("cls");
                     break;
 
                 case 2:
                     // gerar relatório
                     printf("Gerando relatorio de vendas...\n");
-
-                    // funcao gerarRelatorio()
                     gerarRelatorioFinanceiro(estoque, totalAnimes);
                     break;
 

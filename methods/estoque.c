@@ -345,13 +345,13 @@ void gerarRelatorio(struct Anime estoque[], int totalAnimes)
     printf("============================================================\n");
 
     // cabeçalho
-    printf("ID || Nome || Genero || Preco || Quantidade de Blu-rays\n");
+    printf("ID || Nome || Genero || Preco de compra || Preco de venda || Quantidade de Blu-rays\n");
     printf("------------------------------------------------------------\n");
 
     // imprime o estoque
     for (int i = 0; i < totalAnimes; i++)
     {
-        printf("%d || %s || %s || %.2f Reais ||%.2f Reais || %d\n",
+        printf("%d || %s || %s || %.2f Reais || %.2f Reais || %d\n",
                estoque[i].IDanime,
                estoque[i].nome,
                estoque[i].genero,
