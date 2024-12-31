@@ -56,13 +56,15 @@ int main()
                     printf("Adicionando anime...\n");
 
                     char opcao;
-                    while (opcao != 'n')
+                    do 
                     {
                         totalAnimes = cadastrarAnime(estoque, totalAnimes); // atualiza 'totalAnimes'
 
                         printf("Deseja cadastrar outro anime? (s/n): ");
                         scanf(" %c", &opcao);
-                    }
+                    } while (opcao == 's');
+                    
+                    
                     system("cls");
                     break;
 

@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Kleber/OneDrive/Documentos/trabalho_algo/algo-2024-1/methods",
-      "program": "c:/Users/Kleber/OneDrive/Documentos/trabalho_algo/algo-2024-1/methods/build/Debug/outDebug",
+      "cwd": "c:/Users/Kleber/OneDrive/Documentos/trabalho_algo/algo-2024-2",
+      "program": "c:/Users/Kleber/OneDrive/Documentos/trabalho_algo/algo-2024-2/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
