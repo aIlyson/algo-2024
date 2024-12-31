@@ -199,7 +199,16 @@ int main()
                 case 1:
                     // realizar venda
                     printf("Realizando venda...\n");
-                    realizarVenda(estoque, totalAnimes, 0, 0);
+                    printf("\n** REALIZAR VENDA **\n");
+                    int idAnime;
+                    int quantidadeVendida;
+
+                    printf("Digite o ID do produto para venda: ");
+                    scanf("%d", &idAnime);
+                    printf("Digite a quantidade a ser vendida: ");
+                    scanf("%d", &quantidadeVendida);
+
+                    realizarVenda(estoque, totalAnimes, idAnime, quantidadeVendida);
                     break;
 
                 case 2:

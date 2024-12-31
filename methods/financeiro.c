@@ -26,6 +26,20 @@ float calcularLucroPotencial(struct Anime estoque[], int totalAnimes)
     return lucroTotal;
 }
 
+int contarestoqueVazio(struct Anime estoque[], int totalAnimes)
+{
+    int vazio = 0;
+    for (int i = 0; i < totalAnimes; i++)
+    {
+        if (estoque[i].quantidadeBluRay == 0)
+        {
+            vazio += 1;
+        }
+    }
+
+    return vazio;
+}
+
 void realizarVenda(struct Anime estoque[], int totalAnimes, int idAnime, int quantidadeVendida)
 {
     int encontrado = 0;
@@ -80,9 +94,11 @@ void gerarRelatorioFinanceiro(struct Anime estoque[], int totalAnimes)
     // exibe os valores gerais do estoque
     float valorTotal = calcularValorEstoque(estoque, totalAnimes);
     float lucroPotencial = calcularLucroPotencial(estoque, totalAnimes);
+    int estoqueVazio = contarestoqueVazio(estoque, totalAnimes);
 
     printf("Valor total do estoque: R$ %.2f\n", valorTotal);
     printf("Lucro potencial estimado: R$ %.2f\n", lucroPotencial);
+    printf("Estoque vazio: %d\n", estoqueVazio);
     printf("============================================================\n");
 
     // cabeçalho
