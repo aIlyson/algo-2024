@@ -189,7 +189,7 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
         }
     }
 
-    printf("Nenhum anime encontrado. ID inexistente: %d.\n", idBusca);
+    printf("Nenhum anime encontrado com o ID %d.\n", idBusca);
 }
 
 void atualizarEstoque(struct Anime estoque[], int totalAnimes, int IDanime, int quantidade, int entrada)

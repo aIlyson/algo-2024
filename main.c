@@ -54,17 +54,25 @@ int main()
                 case 1:
                     // cadastrar anime
                     printf("Adicionando anime...\n");
-
                     char opcao;
-                    do 
-                    {
-                        totalAnimes = cadastrarAnime(estoque, totalAnimes); // atualiza 'totalAnimes'
 
-                        printf("Deseja cadastrar outro anime? (s/n): ");
-                        scanf(" %c", &opcao);
+                    do
+                    {
+                        totalAnimes = cadastrarAnime(estoque, totalAnimes); // atualuza 'totalAnimes'
+
+                        do
+                        {
+                            printf("Deseja cadastrar outro anime? (s/n): ");
+                            scanf(" %c", &opcao);
+
+                            if (opcao != 's' && opcao != 'n')
+                            {
+                                printf("Erro... Opcao invalida.\n");
+                            }
+                        } while (opcao != 's' && opcao != 'n');
+
                     } while (opcao == 's');
-                    
-                    
+
                     system("cls");
                     break;
 
@@ -79,18 +87,27 @@ int main()
                             break;
                         }
 
-                        printf("Deseja consultar outro anime? (s/n): ");
-                        scanf(" %c", &opcao);
+                        do
+                        {
+                            printf("Deseja consultar outro anime? (s/n): ");
+                            scanf(" %c", &opcao);
+
+                            if (opcao != 's' && opcao != 'n')
+                            {
+                                printf("Error... Opcao invalida!\n");
+                            }
+                        } while (opcao != 's' && opcao != 'n');
+
                     } while (opcao == 's');
+
                     system("cls");
                     break;
 
                 case 3:
                     // editar anime
                     printf("Editando anime...\n");
-                    char continuar;
 
-                    // verifica se tem animes antes
+                    // verifica se há animes antes
                     if (totalAnimes == 0)
                     {
                         printf("Nao ha animes cadastrados! Nada para editar.\n");
@@ -100,9 +117,19 @@ int main()
                         do
                         {
                             editarAnime(estoque, totalAnimes);
-                            printf("Deseja editar outro anime? (s/n): ");
-                            scanf(" %c", &continuar);
-                        } while (continuar != 'n');
+
+                            do
+                            {
+                                printf("Deseja editar outro anime? (s/n): ");
+                                scanf(" %c", &opcao);
+
+                                if (opcao != 's' && opcao != 'n')
+                                {
+                                    printf("Error... Opcao invalida!\n");
+                                }
+                            } while (opcao != 's' && opcao != 'n');
+
+                        } while (opcao == 's');
                     }
                     break;
 
@@ -138,7 +165,7 @@ int main()
                     // remover anime
                     printf("Removendo anime...\n");
 
-                    // verifica se tem animes antes
+                    // verifica se há animes antes
                     if (totalAnimes == 0)
                     {
                         printf("Nao ha animes cadastrados! Nada para remover.\n");
@@ -149,19 +176,29 @@ int main()
                         {
                             totalAnimes = removerAnime(estoque, totalAnimes);
 
-                            // verifica se tem animes restantes
+                            // verifica se há animes restantes
                             if (totalAnimes > 0)
                             {
-                                printf("Animes restantes no estoque: %d\n", totalAnimes);
-                                printf("Deseja remover outro anime? (s/n): ");
-                                scanf(" %c", &continuar);
+                                printf("Animes no estoque: %d\n", totalAnimes);
+
+                                do
+                                {
+                                    printf("Deseja remover outro anime? (s/n): ");
+                                    scanf(" %c", &opcao);
+
+                                    if (opcao != 's' && opcao != 'n')
+                                    {
+                                        printf("Error... Opcao invalida!\n");
+                                    }
+                                } while (opcao != 's' && opcao != 'n');
                             }
                             else
                             {
                                 printf("Nao ha animes cadastrados! Nada para remover.\n");
-                                continuar = 'n';
+                                opcao = 'n';
                             }
-                        } while (continuar != 'n');
+
+                        } while (opcao == 's');
                     }
                     break;
 
