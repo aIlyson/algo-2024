@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Kleber/OneDrive/Documentos/trabalho_algo/algo-2024-2",
-      "program": "c:/Users/Kleber/OneDrive/Documentos/trabalho_algo/algo-2024-2/build/Debug/outDebug",
+      "cwd": "c:/Users/alyss/Downloads/algoritmos-crunchyroll",
+      "program": "c:/Users/alyss/Downloads/algoritmos-crunchyroll/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

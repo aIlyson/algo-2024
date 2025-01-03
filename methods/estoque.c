@@ -75,13 +75,6 @@ int cadastrarAnime(struct Anime estoque[], int totalAnimes)
 
 int consultarAnime(struct Anime estoque[], int totalAnimes)
 {
-    // verifica se o estoque esta vazio
-    if (totalAnimes == 0)
-    {
-        printf("Nao ha animes cadastrados!\n");
-        return 1;
-    }
-
     int opcao;
     printf("\nDeseja buscar por:\n");
     printf("1. ID\n");
@@ -285,13 +278,6 @@ void atualizarEstoque(struct Anime estoque[], int totalAnimes, int IDanime, int 
 
 int removerAnime(struct Anime estoque[], int totalAnimes)
 {
-    // verifica se o estoque está vazio
-    if (totalAnimes == 0)
-    {
-        printf("Nao ha animes cadastrados! Nada para remover.\n");
-        return totalAnimes;
-    }
-
     int opcao;
 
     // menu de opções
@@ -308,6 +294,7 @@ int removerAnime(struct Anime estoque[], int totalAnimes)
         printf("Digite o ID do anime: ");
         scanf("%d", &IDBusca);
 
+        // busca pelo ID
         for (int i = 0; i < totalAnimes; i++)
         {
             if (estoque[i].IDanime == IDBusca)
@@ -364,13 +351,6 @@ int removerAnime(struct Anime estoque[], int totalAnimes)
 
 void gerarRelatorio(struct Anime estoque[], int totalAnimes)
 {
-    // verifica se o estoque está vazio
-    if (totalAnimes == 0)
-    {
-        printf("Nao ha animes cadastrados!\n");
-        return;
-    }
-
     printf("\nRelatorio de Estoque:\n");
     printf("============================================================\n");
 
