@@ -47,8 +47,8 @@ int main()
                 {
                 case 0:
                     // voltar ao menu principal
-                    printf("Voltando ao menu principal...\n");
                     system("cls");
+                    printf("Voltando ao menu principal...\n");
                     break;
 
                 case 1:
@@ -99,8 +99,6 @@ int main()
                         } while (opcao != 's' && opcao != 'n');
 
                     } while (opcao == 's');
-
-                    system("cls");
                     break;
 
                 case 3:
@@ -231,8 +229,8 @@ int main()
                 {
                 case 0:
                     // voltar ao menu principal
-                    printf("Voltando ao menu principal...\n");
                     system("cls");
+                    printf("Voltando ao menu principal...\n");
                     break;
 
                 case 1:

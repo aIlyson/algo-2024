@@ -20,17 +20,48 @@ int cadastrarAnime(struct Anime estoque[], int totalAnimes)
     printf("Digite o nome do anime: ");
     scanf(" %[^\n]", novoAnime.nome); // le uma string com espaços (até o '\n')
 
+    // verifica se o anime existe
+    for (int i = 0; i < totalAnimes; i++)
+    {
+        if (strcmp(estoque[i].nome, novoAnime.nome) == 0)
+        {
+            printf("Anime ja cadastrado!\n");
+            return totalAnimes;
+        }
+    }
+
     printf("Digite o genero do anime: ");
     scanf(" %[^\n]", novoAnime.genero);
 
     printf("Digite o preco de compra do anime: ");
     scanf("%f", &novoAnime.precodecompra);
 
+    // verifica o preco de compra
+    if (novoAnime.precodecompra <= 0)
+    {
+        printf("Erro... O preco de compra invalido!\n");
+        return totalAnimes;
+    }
+
     printf("Digite o preco de venda do anime: ");
     scanf("%f", &novoAnime.precodevenda);
 
+    // verifica o preco de venda
+    if (novoAnime.precodevenda <= 0 || novoAnime.precodevenda < novoAnime.precodecompra)
+    {
+        printf("Erro... O preco de venda invalido!\n");
+        return totalAnimes;
+    }
+
     printf("Digite a quantidade inicial de Blu-rays: ");
     scanf("%d", &novoAnime.quantidadeBluRay);
+
+    // verifica a quantidade de Blu-rays
+    if (novoAnime.quantidadeBluRay <= 0)
+    {
+        printf("Erro... A quantidade de Blu-rays invalida!\n");
+        return totalAnimes;
+    }
 
     // adicina o novo anime ao estoque e incrementa o contador
     estoque[totalAnimes] = novoAnime;
@@ -111,7 +142,6 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
 
     return 0;
 }
-
 void editarAnime(struct Anime estoque[], int totalAnimes)
 {
     if (totalAnimes == 0)
@@ -201,7 +231,7 @@ void atualizarEstoque(struct Anime estoque[], int totalAnimes, int IDanime, int 
         return;
     }
 
-    // verifica se a quantidade e valido
+    // verifica se tem quantidade suficiente de Blu-rays
     if (quantidade <= 0)
     {
         printf("Erro... Numero de Blu-rays invalido.\n");
