@@ -66,7 +66,7 @@ int main()
 
                             if (opcao != 's' && opcao != 'n')
                             {
-                                printf("Erro... Opcao invalida.\n");
+                                printf("ERRO... Opcao invalida.\n");
                             }
                         } while (opcao != 's' && opcao != 'n');
 
@@ -100,9 +100,11 @@ int main()
 
                                 if (opcao != 's' && opcao != 'n')
                                 {
-                                    printf("Error... Opcao invalida!\n");
+                                    printf("ERRO... Opcao invalida!\n");
                                 }
                             } while (opcao != 's' && opcao != 'n');
+
+                            system("cls");
 
                         } while (opcao == 's');
                     }
@@ -130,9 +132,11 @@ int main()
 
                                 if (opcao != 's' && opcao != 'n')
                                 {
-                                    printf("Error... Opcao invalida!\n");
+                                    printf("ERRO... Opcao invalida!\n");
                                 }
                             } while (opcao != 's' && opcao != 'n');
+
+                            system("cls");
 
                         } while (opcao == 's');
                     }
@@ -162,7 +166,7 @@ int main()
                     // notificação de estoque baixo
                     if (estoque[codigo - 1].quantidadeBluRay <= 3)
                     {
-                        printf("Aviso... Estoque muito baixo!\n");
+                        printf("AVISO... Estoque muito baixo!\n");
                     }
 
                     printf("Digite a quantidade: ");
@@ -179,7 +183,7 @@ int main()
                     }
                     else
                     {
-                        printf("Error... Opcao invalida!\n");
+                        printf("ERRO... Opcao invalida!\n");
                     }
                     break;
 
@@ -210,7 +214,7 @@ int main()
 
                                     if (opcao != 's' && opcao != 'n')
                                     {
-                                        printf("Error... Opcao invalida!\n");
+                                        printf("ERRO... Opcao invalida!\n");
                                     }
 
                                 } while (opcao != 's' && opcao != 'n');
@@ -239,7 +243,7 @@ int main()
                     break;
 
                 default:
-                    printf("Error... Opcao invalida!\n");
+                    printf("ERRO... Opcao invalida!\n");
                     break;
                 }
             } while (subOp != 0); // volta ao menu principal
@@ -288,7 +292,7 @@ int main()
 
                 case 2: // gerar relatório
                     system("cls");
-                    printf("============================================================\n");
+                    printf("====================================\n");
                     gerarRelatorioFinanceiro(estoque, totalAnimes);
 
                     if (totalAnimes == 0)
@@ -299,14 +303,14 @@ int main()
                     break;
 
                 default:
-                    printf("Error... Opcao invalida!\n");
+                    printf("ERRO... Opcao invalida!\n");
                     break;
                 }
             } while (subOp != 0); // volta ao menu principal
             break;
 
         default:
-            printf("Error... Opcao invalida!\n");
+            printf("ERRO... Opcao invalida!\n");
             break;
         }
     } while (op != 0); // encerra o programa

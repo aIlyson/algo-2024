@@ -76,7 +76,7 @@ void realizarVenda(struct Anime estoque[], int totalAnimes, int idAnime, int qua
             }
             else
             {
-                printf("Erro... Nao ha quantidade suficiente no anime.\n");
+                printf("ERRO... Nao ha quantidade suficiente no anime.\n");
             }
             break;
         }
@@ -90,14 +90,7 @@ void realizarVenda(struct Anime estoque[], int totalAnimes, int idAnime, int qua
 
 void gerarRelatorioFinanceiro(struct Anime estoque[], int totalAnimes)
 {
-    // verifica se o estoque esta vazio
-    if (totalAnimes == 0)
-    {
-        printf("Nao ha animes cadastrados!\n");
-        return;
-    }
-
-    printf("\n*** Relatorio Financeiro ***\n");
+    printf("\nRelatorio de Finanças:\n");
     printf("============================================================\n");
 
     // exibe os valores gerais do estoque
@@ -114,7 +107,7 @@ void gerarRelatorioFinanceiro(struct Anime estoque[], int totalAnimes)
     }
     if (totalBluRays == 0)
     {
-        printf("Aviso: Todo o estoque de Blu-rays esta vazio!\n");
+        printf("AVISO... Nao ha Blu-rays no estoque!\n");
     }
     printf("============================================================\n");
 
@@ -127,7 +120,7 @@ void gerarRelatorioFinanceiro(struct Anime estoque[], int totalAnimes)
     {
         float lucroProduto = (estoque[i].precodevenda - estoque[i].precodecompra) * (float)estoque[i].quantidadeBluRay;
 
-        printf("%d || %s || R$ %.2f || R$ %.2f || %d || R$ %.2f\n",
+        printf("%d || %s || R$ %.2f Reais || R$ %.2f Reais || %d Unidades || R$ %.2f\n",
                estoque[i].IDanime,
                estoque[i].nome,
                estoque[i].precodecompra,

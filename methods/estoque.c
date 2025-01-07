@@ -39,7 +39,7 @@ int cadastrarAnime(struct Anime estoque[], int totalAnimes)
     // verifica o preco de compra
     if (novoAnime.precodecompra <= 0)
     {
-        printf("Erro... O preco de compra invalido!\n");
+        printf("ERRO... O preco de compra invalido!\n");
         return totalAnimes;
     }
 
@@ -49,7 +49,7 @@ int cadastrarAnime(struct Anime estoque[], int totalAnimes)
     // verifica o preco de venda
     if (novoAnime.precodevenda <= 0 || novoAnime.precodevenda < novoAnime.precodecompra)
     {
-        printf("Erro... O preco de venda invalido!\n");
+        printf("ERRO... O preco de venda invalido!\n");
         return totalAnimes;
     }
 
@@ -59,7 +59,7 @@ int cadastrarAnime(struct Anime estoque[], int totalAnimes)
     // verifica a quantidade de Blu-rays
     if (novoAnime.quantidadeBluRay <= 0)
     {
-        printf("Erro... A quantidade de Blu-rays invalida!\n");
+        printf("ERRO... A quantidade de Blu-rays invalida!\n");
         return totalAnimes;
     }
 
@@ -94,6 +94,7 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
             if (estoque[i].IDanime == idBusca)
             {
                 printf("\nAnime encontrado:\n");
+                printf("====================================\n");
                 printf("ID: %d\n", estoque[i].IDanime);
                 printf("Nome: %s\n", estoque[i].nome);
                 printf("Genero: %s\n", estoque[i].genero);
@@ -131,7 +132,7 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
     }
     else
     {
-        printf("Error... Opcao invalida!\n");
+        printf("ERROR... Opcao invalida!\n");
     }
 
     return 0;
@@ -188,7 +189,7 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
                 // verifica se o preco de compra e valido
                 if (novoPrecoCompra <= 0 || novoPrecoCompra > estoque[i].precodevenda)
                 {
-                    printf("Erro... Preco de compra invalido!\n");
+                    printf("ERRO... Preco de compra invalido!\n");
                 }
                 else
                 {
@@ -208,7 +209,7 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
                 // verifica se o preco de venda é valido
                 if (novoPrecoVenda <= 0 || novoPrecoVenda < estoque[i].precodecompra)
                 {
-                    printf("Erro... O preco de venda invalido!\n");
+                    printf("ERRO... O preco de venda invalido!\n");
                 }
                 else
                 {
@@ -227,7 +228,7 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
 
                 if (novaQuantidade < 0)
                 {
-                    printf("Erro... Quantidade invalida!\n");
+                    printf("ERRO... Quantidade invalida!\n");
                 }
                 else
                 {
@@ -256,7 +257,7 @@ void atualizarEstoque(struct Anime estoque[], int totalAnimes, int IDanime, int 
     // verifica se tem quantidade suficiente de Blu-rays
     if (quantidade <= 0)
     {
-        printf("Erro... Numero de Blu-rays invalido.\n");
+        printf("ERRO... Numero de Blu-rays invalido.\n");
         return;
     }
 
@@ -290,13 +291,13 @@ void atualizarEstoque(struct Anime estoque[], int totalAnimes, int IDanime, int 
                 else
                 {
                     // verifica se tem estoque
-                    printf("Erro... Nao ha quantidade suficiente no anime '%s'. Disponivel: %d Blu-rays.\n",
+                    printf("ERRO... Nao ha quantidade suficiente no anime '%s'. Disponivel: %d Blu-rays.\n",
                            estoque[i].nome, estoque[i].quantidadeBluRay);
                 }
             }
             else
             {
-                printf("Erro... Opcao invalida.\n");
+                printf("ERRO... Opcao invalida.\n");
             }
 
             return;
@@ -385,7 +386,7 @@ int removerAnime(struct Anime estoque[], int totalAnimes)
     }
     else
     {
-        printf("Erro... Opcao invalida.\n");
+        printf("ERRO... Opcao invalida.\n");
     }
 
     return totalAnimes;
