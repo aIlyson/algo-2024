@@ -155,6 +155,7 @@ int main()
                     printf("Digite a quantidade: ");
                     scanf("%d", &quantidade);
 
+                    // valida a escolha
                     if (escolha == 1)
                     {
                         atualizarEstoque(estoque, totalAnimes, codigo, quantidade, 1);
