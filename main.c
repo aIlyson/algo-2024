@@ -56,15 +56,14 @@ int main()
                     printf("Adicionando anime...\n");
 
                     char opcao;
-                    do 
+                    do
                     {
                         totalAnimes = cadastrarAnime(estoque, totalAnimes); // atualiza 'totalAnimes'
 
                         printf("Deseja cadastrar outro anime? (s/n): ");
                         scanf(" %c", &opcao);
                     } while (opcao == 's');
-                    
-                    
+
                     system("cls");
                     break;
 
@@ -117,6 +116,14 @@ int main()
 
                     printf("Digite o codigo do anime: ");
                     scanf("%d", &codigo);
+                    // mostra o estoque
+                    printf("Estoque atual do anime: %d\n", estoque[codigo - 1].quantidadeBluRay);
+                    //notificação de estoque baixo
+                    if (estoque[codigo - 1].quantidadeBluRay <= 3)
+                    {
+                        printf("Aviso: Estoque muito baixo!\n");
+                    }
+
                     printf("Digite a quantidade: ");
                     scanf("%d", &quantidade);
 
