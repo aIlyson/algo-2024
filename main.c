@@ -11,7 +11,7 @@ int main()
 
     do
     {
-        printf("\n*** MENU PRINCIPAL ***\n");
+        printf("\n           MENU PRINCIPAL           \n");
         printf("=======================================\n");
         printf("0. Sair\n");
         printf("1. Gerenciar estoque de animes\n");
@@ -27,10 +27,11 @@ int main()
             printf("Saindo...\n");
             break;
 
-        case 1:
+        case 1: // gerenciar estoque
             do
             {
-                printf("\n*** MENU DE GESTAO DE ESTOQUE DE ANIMES ***\n");
+                system("cls");
+                printf("\n     MENU DE GESTAO DE ESTOQUE DE ANIMES     \n");
                 printf("============================================\n");
                 printf("0. Voltar ao menu principal\n");
                 printf("1. Adicionar anime\n");
@@ -45,19 +46,17 @@ int main()
 
                 switch (subOp)
                 {
-                case 0:
-                    // voltar ao menu principal
+                case 0: // voltar ao menu principal
                     system("cls");
                     printf("Voltando ao menu principal...\n");
                     break;
 
-                case 1:
-                    // cadastrar anime
-                    printf("Adicionando anime...\n");
+                case 1: // cadastrar anime
+                    printf("Cadastrar anime\n");
                     char opcao;
                     do
                     {
-                        totalAnimes = cadastrarAnime(estoque, totalAnimes); // atualiza 'totalAnimes'
+                        totalAnimes = cadastrarAnime(estoque, totalAnimes); // atualiza o 'totalAnimes'
 
                         do
                         {
@@ -75,9 +74,8 @@ int main()
                     system("cls");
                     break;
 
-                case 2:
-                    // consultar anime
-                    printf("Consultando anime...\n");
+                case 2: // consultar anime
+                    printf("Consultar anime\n");
 
                     // verifica se há animes antes
                     if (totalAnimes == 0)
@@ -109,9 +107,8 @@ int main()
                     }
                     break;
 
-                case 3:
-                    // editar anime
-                    printf("Editando anime...\n");
+                case 3: // editar anime
+                    printf("Editar anime\n");
 
                     // verifica se há animes antes
                     if (totalAnimes == 0)
@@ -140,9 +137,8 @@ int main()
                     }
                     break;
 
-                case 4:
-                    // atualizar estoque
-                    printf("Atualizar estoque de Blu-rays:\n");
+                case 4: // atualizar estoque
+                    printf("Atualizar estoque de Blu-rays\n");
                     printf("1. Entrada de Blu-rays\n");
                     printf("2. Saida de Blu-rays\n");
 
@@ -153,10 +149,11 @@ int main()
                     scanf("%d", &codigo);
                     // mostra o estoque
                     printf("Estoque atual do anime: %d\n", estoque[codigo - 1].quantidadeBluRay);
-                    //notificação de estoque baixo
+
+                    // notificação de estoque baixo
                     if (estoque[codigo - 1].quantidadeBluRay <= 3)
                     {
-                        printf("Aviso: Estoque muito baixo!\n");
+                        printf("Aviso... Estoque muito baixo!\n");
                     }
 
                     printf("Digite a quantidade: ");
@@ -177,9 +174,8 @@ int main()
                     }
                     break;
 
-                case 5:
-                    // remover anime
-                    printf("Removendo anime...\n");
+                case 5: // remover anime
+                    printf("Remover anime\n");
 
                     // verifica se há animes antes
                     if (totalAnimes == 0)
@@ -220,9 +216,8 @@ int main()
                     }
                     break;
 
-                case 6:
-                    // gerar relatório
-                    printf("Gerando relatorio de estoque...\n");
+                case 6: // gerar relatório
+                    printf("Relatorio de estoque\n");
                     gerarRelatorio(estoque, totalAnimes);
 
                     if (totalAnimes == 0)
@@ -240,10 +235,11 @@ int main()
             } while (subOp != 0); // volta ao menu principal
             break;
 
-        case 2:
+        case 2: // gerenciar financeiro
             do
             {
-                printf("\n*** MENU DE GESTAO FINANCEIRO ***\n");
+                system("cls");
+                printf("\n      MENU DE GESTAO FINANCEIRO      \n");
                 printf("====================================\n");
                 printf("0. Voltar ao menu principal\n");
                 printf("1. Realizar venda\n");
@@ -254,16 +250,13 @@ int main()
 
                 switch (subOp)
                 {
-                case 0:
-                    // voltar ao menu principal
+                case 0: // voltar ao menu principal
                     system("cls");
                     printf("Voltando ao menu principal...\n");
                     break;
 
-                case 1:
-                    // realizar venda
-                    printf("Realizando venda...\n");
-                    printf("\n** REALIZAR VENDA **\n");
+                case 1: // realizar venda
+                    printf("Realizar venda\n");
                     int idAnime;
                     int quantidadeVendida;
 
@@ -273,12 +266,24 @@ int main()
                     scanf("%d", &quantidadeVendida);
 
                     realizarVenda(estoque, totalAnimes, idAnime, quantidadeVendida);
+
+                    if (totalAnimes == 0)
+                    {
+                        system("cls");
+                        printf("Nao ha animes cadastrados! Nada para vender.\n");
+                    }
                     break;
 
-                case 2:
+                case 2: //
                     // gerar relatório
-                    printf("Gerando relatorio de vendas...\n");
+                    printf("Relatorio de financeiro\n");
                     gerarRelatorioFinanceiro(estoque, totalAnimes);
+
+                    if (totalAnimes == 0)
+                    {
+                        system("cls");
+                        printf("Nao ha animes cadastrados!\n");
+                    }
                     break;
 
                 default:

@@ -77,8 +77,8 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
 {
     int opcao;
     printf("\nDeseja buscar por:\n");
-    printf("1. ID\n");
-    printf("2. Nome\n");
+    printf("1 - ID\n");
+    printf("2 - Nome\n");
     printf("Escolha uma opcao: ");
     scanf("%d", &opcao);
 
@@ -147,12 +147,14 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
         if (estoque[i].IDanime == idBusca)
         {
             printf("\nAnime encontrado:\n");
+            printf("====================================\n");
             printf("ID: %d\n", estoque[i].IDanime);
             printf("Nome atual: %s\n", estoque[i].nome);
             printf("Genero atual: %s\n", estoque[i].genero);
             printf("Preco de compra atual: %.2f\n", estoque[i].precodecompra);
             printf("Preco de venda atual: %.2f\n", estoque[i].precodevenda);
             printf("Quantidade atual de Blu-rays: %d\n", estoque[i].quantidadeBluRay);
+            printf("====================================\n");
 
             char opcao;
 
@@ -178,7 +180,7 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
             scanf(" %c", &opcao);
             if (opcao == 's' || opcao == 'S')
             {
-                float novoPrecoCompra;
+                float novoPrecoCompra; // auxiliar para salvar o preco de compra
                 printf("Digite o novo preco de compra: ");
                 scanf("%f", &novoPrecoCompra);
 
@@ -198,7 +200,7 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
             scanf(" %c", &opcao);
             if (opcao == 's' || opcao == 'S')
             {
-                float novoPrecoVenda;
+                float novoPrecoVenda; // auxiliar para salvar o preco de venda
                 printf("Digite o novo preco de venda: ");
                 scanf("%f", &novoPrecoVenda);
 
@@ -218,7 +220,7 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
             scanf(" %c", &opcao);
             if (opcao == 's' || opcao == 'S')
             {
-                int novaQuantidade;
+                int novaQuantidade; // auxiliar para salvar a quantidade
                 printf("Digite a nova quantidade de Blu-rays: ");
                 scanf("%d", &novaQuantidade);
 
@@ -256,7 +258,7 @@ void atualizarEstoque(struct Anime estoque[], int totalAnimes, int IDanime, int 
         printf("Erro... Numero de Blu-rays invalido.\n");
         return;
     }
-    
+
     // busca pelo ID do anime
     for (int i = 0; i < totalAnimes; i++)
     {
@@ -308,8 +310,8 @@ int removerAnime(struct Anime estoque[], int totalAnimes)
 
     // menu de opções
     printf("\nDeseja buscar para remover por:\n");
-    printf("1. ID\n");
-    printf("2. Nome\n");
+    printf("1 - ID\n");
+    printf("2 - Nome\n");
     printf("Escolha uma opcao: ");
     scanf("%d", &opcao);
 
