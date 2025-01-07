@@ -256,7 +256,7 @@ void atualizarEstoque(struct Anime estoque[], int totalAnimes, int IDanime, int 
         printf("Erro... Numero de Blu-rays invalido.\n");
         return;
     }
-
+    
     // busca pelo ID do anime
     for (int i = 0; i < totalAnimes; i++)
     {
