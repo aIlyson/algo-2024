@@ -140,6 +140,14 @@ int main()
 
                 case 4: // atualizar estoque
                     printf("Atualizar estoque de Blu-rays\n");
+
+                    if (totalAnimes == 0)
+                    {
+                        system("cls");
+                        printf("Nao ha animes cadastrados! Nada para atualizar.\n");
+                        break;
+                    }
+
                     printf("1. Entrada de Blu-rays\n");
                     printf("2. Saida de Blu-rays\n");
 
@@ -204,21 +212,24 @@ int main()
                                     {
                                         printf("Error... Opcao invalida!\n");
                                     }
+
                                 } while (opcao != 's' && opcao != 'n');
                             }
                             else
                             {
-                                system("cls");
                                 printf("Nao ha animes cadastrados! Nada para remover.\n");
                                 opcao = 'n';
                             }
+
+                            system("cls");
 
                         } while (opcao == 's');
                     }
                     break;
 
                 case 6: // gerar relatório
-                    printf("Relatorio de estoque\n");
+                    system("cls");
+                    printf("====================================\n");
                     gerarRelatorio(estoque, totalAnimes);
                     if (totalAnimes == 0)
                     {
@@ -276,7 +287,8 @@ int main()
                     break;
 
                 case 2: // gerar relatório
-                    printf("Relatorio de financeiro\n");
+                    system("cls");
+                    printf("============================================================\n");
                     gerarRelatorioFinanceiro(estoque, totalAnimes);
 
                     if (totalAnimes == 0)

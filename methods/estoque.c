@@ -117,6 +117,7 @@ int consultarAnime(struct Anime estoque[], int totalAnimes)
             if (strcmp(estoque[i].nome, nomeBusca) == 0)
             {
                 printf("\nAnime encontrado:\n");
+                printf("====================================\n");
                 printf("ID: %d\n", estoque[i].IDanime);
                 printf("Nome: %s\n", estoque[i].nome);
                 printf("Genero: %s\n", estoque[i].genero);
@@ -268,6 +269,7 @@ void atualizarEstoque(struct Anime estoque[], int totalAnimes, int IDanime, int 
             int quantidadeAnterior = estoque[i].quantidadeBluRay;
 
             printf("\nAnime encontrado: '%s'\n", estoque[i].nome);
+            printf("====================================\n");
 
             if (entrada == 1)
             {
@@ -336,6 +338,12 @@ int removerAnime(struct Anime estoque[], int totalAnimes)
                 }
                 totalAnimes--;
 
+                // reorganiza e atualiza os IDs
+                for (int j = 0; j < totalAnimes; j++)
+                {
+                    estoque[j].IDanime = j + 1;
+                }
+
                 printf("Anime removido!\n");
                 return totalAnimes;
             }
@@ -361,6 +369,12 @@ int removerAnime(struct Anime estoque[], int totalAnimes)
                     estoque[j] = estoque[j + 1];
                 }
                 totalAnimes--;
+
+                // reorganiza e atualiza os IDs
+                for (int j = 0; j < totalAnimes; j++)
+                {
+                    estoque[j].IDanime = j + 1;
+                }
 
                 printf("Anime removido!\n");
 
