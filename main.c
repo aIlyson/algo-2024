@@ -20,6 +20,8 @@ int main()
         printf("Escolha uma opcao: ");
         scanf("%d", &op);
 
+        system("cls");
+
         switch (op)
         {
         case 0:
@@ -30,7 +32,6 @@ int main()
         case 1: // gerenciar estoque
             do
             {
-                system("cls");
                 printf("\n     MENU DE GESTAO DE ESTOQUE DE ANIMES     \n");
                 printf("============================================\n");
                 printf("0. Voltar ao menu principal\n");
@@ -219,13 +220,11 @@ int main()
                 case 6: // gerar relatório
                     printf("Relatorio de estoque\n");
                     gerarRelatorio(estoque, totalAnimes);
-
                     if (totalAnimes == 0)
                     {
                         system("cls");
                         printf("Nao ha animes cadastrados!\n");
                     }
-
                     break;
 
                 default:
@@ -238,7 +237,6 @@ int main()
         case 2: // gerenciar financeiro
             do
             {
-                system("cls");
                 printf("\n      MENU DE GESTAO FINANCEIRO      \n");
                 printf("====================================\n");
                 printf("0. Voltar ao menu principal\n");
@@ -257,25 +255,27 @@ int main()
 
                 case 1: // realizar venda
                     printf("Realizar venda\n");
-                    int idAnime;
-                    int quantidadeVendida;
-
-                    printf("Digite o ID do produto para venda: ");
-                    scanf("%d", &idAnime);
-                    printf("Digite a quantidade a ser vendida: ");
-                    scanf("%d", &quantidadeVendida);
-
-                    realizarVenda(estoque, totalAnimes, idAnime, quantidadeVendida);
 
                     if (totalAnimes == 0)
                     {
                         system("cls");
-                        printf("Nao ha animes cadastrados! Nada para vender.\n");
+                        printf("Nao ha animes cadastrados!\n");
+                    }
+                    else
+                    {
+                        int idAnime;
+                        int quantidadeVendida;
+
+                        printf("Digite o ID do produto para venda: ");
+                        scanf("%d", &idAnime);
+                        printf("Digite a quantidade a ser vendida: ");
+                        scanf("%d", &quantidadeVendida);
+
+                        realizarVenda(estoque, totalAnimes, idAnime, quantidadeVendida);
                     }
                     break;
 
-                case 2: //
-                    // gerar relatório
+                case 2: // gerar relatório
                     printf("Relatorio de financeiro\n");
                     gerarRelatorioFinanceiro(estoque, totalAnimes);
 
