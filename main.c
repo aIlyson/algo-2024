@@ -47,21 +47,29 @@ int main()
                 {
                 case 0:
                     // voltar ao menu principal
-                    printf("Voltando ao menu principal...\n");
                     system("cls");
+                    printf("Voltando ao menu principal...\n");
                     break;
 
                 case 1:
                     // cadastrar anime
                     printf("Adicionando anime...\n");
-
                     char opcao;
                     do
                     {
                         totalAnimes = cadastrarAnime(estoque, totalAnimes); // atualiza 'totalAnimes'
 
-                        printf("Deseja cadastrar outro anime? (s/n): ");
-                        scanf(" %c", &opcao);
+                        do
+                        {
+                            printf("Deseja cadastrar outro anime? (s/n): ");
+                            scanf(" %c", &opcao);
+
+                            if (opcao != 's' && opcao != 'n')
+                            {
+                                printf("Erro... Opcao invalida.\n");
+                            }
+                        } while (opcao != 's' && opcao != 'n');
+
                     } while (opcao == 's');
 
                     system("cls");
@@ -71,27 +79,44 @@ int main()
                     // consultar anime
                     printf("Consultando anime...\n");
 
-                    do
+                    // verifica se há animes antes
+                    if (totalAnimes == 0)
                     {
-                        if (consultarAnime(estoque, totalAnimes) != 0)
+                        system("cls");
+                        printf("Nao ha animes cadastrados! Nada para consultar.\n");
+                    }
+                    else
+                    {
+                        do
                         {
-                            break;
-                        }
+                            if (consultarAnime(estoque, totalAnimes) != 0)
+                            {
+                                break;
+                            }
 
-                        printf("Deseja consultar outro anime? (s/n): ");
-                        scanf(" %c", &opcao);
-                    } while (opcao == 's');
-                    system("cls");
+                            do
+                            {
+                                printf("Deseja consultar outro anime? (s/n): ");
+                                scanf(" %c", &opcao);
+
+                                if (opcao != 's' && opcao != 'n')
+                                {
+                                    printf("Error... Opcao invalida!\n");
+                                }
+                            } while (opcao != 's' && opcao != 'n');
+
+                        } while (opcao == 's');
+                    }
                     break;
 
                 case 3:
                     // editar anime
                     printf("Editando anime...\n");
-                    char continuar;
 
-                    // verifica se tem animes antes
+                    // verifica se há animes antes
                     if (totalAnimes == 0)
                     {
+                        system("cls");
                         printf("Nao ha animes cadastrados! Nada para editar.\n");
                     }
                     else
@@ -99,9 +124,19 @@ int main()
                         do
                         {
                             editarAnime(estoque, totalAnimes);
-                            printf("Deseja editar outro anime? (s/n): ");
-                            scanf(" %c", &continuar);
-                        } while (continuar != 'n');
+
+                            do
+                            {
+                                printf("Deseja editar outro anime? (s/n): ");
+                                scanf(" %c", &opcao);
+
+                                if (opcao != 's' && opcao != 'n')
+                                {
+                                    printf("Error... Opcao invalida!\n");
+                                }
+                            } while (opcao != 's' && opcao != 'n');
+
+                        } while (opcao == 's');
                     }
                     break;
 
@@ -145,9 +180,10 @@ int main()
                     // remover anime
                     printf("Removendo anime...\n");
 
-                    // verifica se tem animes antes
+                    // verifica se há animes antes
                     if (totalAnimes == 0)
                     {
+                        system("cls");
                         printf("Nao ha animes cadastrados! Nada para remover.\n");
                     }
                     else
@@ -156,19 +192,30 @@ int main()
                         {
                             totalAnimes = removerAnime(estoque, totalAnimes);
 
-                            // verifica se tem animes restantes
+                            // verifica se há animes restantes
                             if (totalAnimes > 0)
                             {
-                                printf("Animes restantes no estoque: %d\n", totalAnimes);
-                                printf("Deseja remover outro anime? (s/n): ");
-                                scanf(" %c", &continuar);
+                                printf("Animes no estoque: %d\n", totalAnimes);
+
+                                do
+                                {
+                                    printf("Deseja remover outro anime? (s/n): ");
+                                    scanf(" %c", &opcao);
+
+                                    if (opcao != 's' && opcao != 'n')
+                                    {
+                                        printf("Error... Opcao invalida!\n");
+                                    }
+                                } while (opcao != 's' && opcao != 'n');
                             }
                             else
                             {
+                                system("cls");
                                 printf("Nao ha animes cadastrados! Nada para remover.\n");
-                                continuar = 'n';
+                                opcao = 'n';
                             }
-                        } while (continuar != 'n');
+
+                        } while (opcao == 's');
                     }
                     break;
 
@@ -176,6 +223,13 @@ int main()
                     // gerar relatório
                     printf("Gerando relatorio de estoque...\n");
                     gerarRelatorio(estoque, totalAnimes);
+
+                    if (totalAnimes == 0)
+                    {
+                        system("cls");
+                        printf("Nao ha animes cadastrados!\n");
+                    }
+
                     break;
 
                 default:
@@ -201,8 +255,8 @@ int main()
                 {
                 case 0:
                     // voltar ao menu principal
-                    printf("Voltando ao menu principal...\n");
                     system("cls");
+                    printf("Voltando ao menu principal...\n");
                     break;
 
                 case 1:

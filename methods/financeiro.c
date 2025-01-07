@@ -3,7 +3,7 @@
 #include "financeiro.h"
 
 // funções
-float calcularValorEstoque(struct Anime estoque[], int totalAnimes)// calcula o valor total do estoque
+float calcularValorEstoque(struct Anime estoque[], int totalAnimes) // calcula o valor total do estoque
 {
     float valorTotal = 0.0;
     for (int i = 0; i < totalAnimes; i++)
@@ -14,13 +14,13 @@ float calcularValorEstoque(struct Anime estoque[], int totalAnimes)// calcula o 
     return valorTotal;
 }
 
-float calcularLucroPotencial(struct Anime estoque[], int totalAnimes)// calcula o lucro potencial estimado
+float calcularLucroPotencial(struct Anime estoque[], int totalAnimes) // calcula o lucro potencial estimado
 {
     float lucroTotal = 0.0;
     for (int i = 0; i < totalAnimes; i++)
     {
-        float lucroPorUnidade = estoque[i].precodevenda - estoque[i].precodecompra;// calcula o lucro por unidade
-        lucroTotal += lucroPorUnidade * (float)estoque[i].quantidadeBluRay;// calcula o lucro total
+        float lucroPorUnidade = estoque[i].precodevenda - estoque[i].precodecompra; // calcula o lucro por unidade
+        lucroTotal += lucroPorUnidade * (float)estoque[i].quantidadeBluRay;         // calcula o lucro total
     }
 
     return lucroTotal;
@@ -30,19 +30,23 @@ void contarestoqueVazio(struct Anime estoque[], int totalAnimes)
 {
     int vazio = 0;
     printf("Animes com estoque vazio:\n");
-    for (int i = 0; i < totalAnimes; i++) {
-        if (estoque[i].quantidadeBluRay == 0) {
+    for (int i = 0; i < totalAnimes; i++)
+    {
+        if (estoque[i].quantidadeBluRay == 0)
+        {
             printf("- %s\n", estoque[i].nome);
             vazio++;
         }
     }
 
-    if (vazio == 0) {
+    if (vazio == 0)
+    {
         printf("Nenhum anime com estoque vazio.\n");
-    } else {
+    }
+    else
+    {
         printf("Total: %d\n", vazio);
     }
-
 }
 
 void realizarVenda(struct Anime estoque[], int totalAnimes, int idAnime, int quantidadeVendida)
@@ -103,11 +107,13 @@ void gerarRelatorioFinanceiro(struct Anime estoque[], int totalAnimes)
     printf("Valor total do estoque: R$ %.2f\n", valorTotal);
     printf("Lucro potencial estimado: R$ %.2f\n", lucroPotencial);
     contarestoqueVazio(estoque, totalAnimes);
-    int totalBluRays = 0;// verifica se o estoque INTEIRO de Blu-rays esta vazio
-    for (int i = 0; i < totalAnimes; i++) {
+    int totalBluRays = 0; // verifica se o estoque INTEIRO de Blu-rays esta vazio
+    for (int i = 0; i < totalAnimes; i++)
+    {
         totalBluRays += estoque[i].quantidadeBluRay;
     }
-    if (totalBluRays == 0) {
+    if (totalBluRays == 0)
+    {
         printf("Aviso: Todo o estoque de Blu-rays esta vazio!\n");
     }
     printf("============================================================\n");
