@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>
+#include <string.h>  // inclui a biblioteca string.h para usar a funcao strcmp, que compara strings
 #include "estoque.h" // inclui o arquivo estoque.h para usar a estrutura Anime
 
 // funções
@@ -309,7 +309,7 @@ void atualizarEstoque(struct Anime estoque[], int totalAnimes, int IDanime, int 
 
 int removerAnime(struct Anime estoque[], int totalAnimes)
 {
-    int opcao;
+    int opcao; // variavel auxiliar
 
     // menu de opções
     printf("\nDeseja buscar para remover por:\n");

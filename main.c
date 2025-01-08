@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "methods/estoque.h"
-#include "methods/financeiro.h"
+#include <stdio.h>              // inclui a biblioteca stdio.h para usar as funcoes basicas
+#include <stdlib.h>             // inclui a biblioteca stdlib.h para usar o system("cls")
+#include "methods/estoque.h"    // inclui o arquivo estoque.h para usar a estrutura Anime e as funcoes
+#include "methods/financeiro.h" // inclui o arquivo financeiro.h para usar as funcoes
 
 int main()
 {

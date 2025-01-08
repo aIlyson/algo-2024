@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>
+#include <string.h>     // inclui a biblioteca string.h para usar a funcao strcmp, que compara strings
 #include "financeiro.h" // inclui o arquivo financeiro.h para usar a estrutura Anime
 
 // variáveis globais
@@ -59,7 +59,7 @@ void contarestoqueVazio(struct Anime estoque[], int totalAnimes)
 
 void realizarVenda(struct Anime estoque[], int totalAnimes, int idAnime, int quantidadeVendida)
 {
-    int encontrado = 0;
+    int encontrado = 0; // variável para verificar se o anime foi encontrado
 
     // busca pelo ID
     for (int i = 0; i < totalAnimes; i++)
@@ -110,7 +110,7 @@ void realizarVenda(struct Anime estoque[], int totalAnimes, int idAnime, int qua
 
 void consultarCaixa()
 {
-    float totalCaixa = 0.0;
+    float totalCaixa = 0.0; // variável para armazenar o valor total
 
     // verifica se o caixa esta vazio
     if (totalVendas == 0)
