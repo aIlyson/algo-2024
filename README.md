@@ -12,10 +12,11 @@ Este é um projeto de gerenciamento de estoque de animes. Ele foi desenvolvido u
 
 ## Funcionalidades
 
+- [x] Navegação entre menus principais e secundários
 - [x] Gerenciar estoque de animes (adicionar, consultar, editar, atualizar e remover animes)
 - [x] Gerar relatórios do estoque e financeiro
 - [x] Realizar vendas de animes
-- [x] Navegação entre menus principais e secundários
+- [x] Consultar caixa
 
 ### Features
 
