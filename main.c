@@ -5,10 +5,12 @@
 
 int main()
 {
+    // variaveis
     struct Anime estoque[100];
     int totalAnimes = 0;
     int op, subOp;
 
+    // menu principal
     do
     {
         printf("\n           MENU PRINCIPAL           \n");
@@ -238,7 +240,7 @@ int main()
                     if (totalAnimes == 0)
                     {
                         system("cls");
-                        printf("Nao ha animes cadastrados!\n");
+                        printf("Nao ha animes cadastrados! Nada para exibir.\n");
                     }
                     break;
 
@@ -256,7 +258,8 @@ int main()
                 printf("====================================\n");
                 printf("0. Voltar ao menu principal\n");
                 printf("1. Realizar venda\n");
-                printf("2. Gerar relatorio de financeiro\n");
+                printf("2. Consultar caixa da locadora\n");
+                printf("3. Gerar relatorio de financeiro\n");
                 printf("====================================\n");
                 printf("Escolha uma opcao: ");
                 scanf("%d", &subOp);
@@ -290,7 +293,12 @@ int main()
                     }
                     break;
 
-                case 2: // gerar relatório
+                case 2: // consultar caixa da locadora
+                    system("cls");
+                    consultarCaixa();
+                    break;
+
+                case 3: // gerar relatório
                     system("cls");
                     printf("====================================\n");
                     gerarRelatorioFinanceiro(estoque, totalAnimes);
@@ -298,7 +306,7 @@ int main()
                     if (totalAnimes == 0)
                     {
                         system("cls");
-                        printf("Nao ha animes cadastrados!\n");
+                        printf("Nao ha animes cadastrados! Nada para exibir.\n");
                     }
                     break;
 

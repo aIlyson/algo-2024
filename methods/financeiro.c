@@ -2,6 +2,10 @@
 #include <string.h>
 #include "financeiro.h"
 
+// variáveis globais
+float vendas[100];   // vetor para armazenar as vendas
+int totalVendas = 0; // contador de vendas
+
 // funções
 float calcularValorEstoque(struct Anime estoque[], int totalAnimes) // calcula o valor total do estoque
 {
@@ -41,7 +45,7 @@ void contarestoqueVazio(struct Anime estoque[], int totalAnimes)
 
     if (vazio == 0)
     {
-        printf("Nenhum anime com estoque vazio.\n");
+        printf("- Nenhum anime com estoque vazio.\n");
     }
     else
     {
@@ -65,14 +69,26 @@ void realizarVenda(struct Anime estoque[], int totalAnimes, int idAnime, int qua
             {
                 estoque[i].quantidadeBluRay -= quantidadeVendida; // diminui a quantidade em estoque
 
-                // calcula o valor e exibe detalhes da venda
+                // calcula o valor da venda
                 float valorVenda = estoque[i].precodevenda * (float)quantidadeVendida;
 
+                if (totalVendas < 100) // verifica o limite do vetor
+                {
+                    vendas[totalVendas] = valorVenda; // adiciona a venda no vetor
+                    totalVendas++;                    // incrementa o contador
+                }
+                else
+                {
+                    printf("ERRO... Limite de vendas atingido!\n");
+                }
+
                 printf("\nVenda realizada!\n");
+                printf("====================================\n");
                 printf("Produto: %s\n", estoque[i].nome);
                 printf("Quantidade vendida: %d\n", quantidadeVendida);
                 printf("Valor da venda: R$ %.2f\n", valorVenda);
                 printf("Quantidade restante em estoque: %d\n", estoque[i].quantidadeBluRay);
+                printf("====================================\n");
             }
             else
             {
@@ -88,9 +104,31 @@ void realizarVenda(struct Anime estoque[], int totalAnimes, int idAnime, int qua
     }
 }
 
+void consultarCaixa()
+{
+    float totalCaixa = 0.0;
+
+    printf("\nConsulta de Caixa:\n");
+    printf("============================================================\n");
+
+    if (totalVendas == 0)
+    {
+        printf("Nenhuma venda realizada! Caixa vazio.\n");
+        return;
+    }
+
+    for (int i = 0; i < totalVendas; i++)
+    {
+        totalCaixa += vendas[i];
+    }
+
+    printf("Valor total em caixa: R$ %.2f\n", totalCaixa);
+    printf("====================================\n");
+}
+
 void gerarRelatorioFinanceiro(struct Anime estoque[], int totalAnimes)
 {
-    printf("\nRelatorio de Finanças:\n");
+    printf("\nRelatorio de Financas:\n");
     printf("============================================================\n");
 
     // exibe os valores gerais do estoque
