@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "financeiro.h"
+#include "financeiro.h" // inclui o arquivo financeiro.h para usar a estrutura Anime
 
 // variáveis globais
 float vendas[100];   // vetor para armazenar as vendas
@@ -33,7 +33,11 @@ float calcularLucroPotencial(struct Anime estoque[], int totalAnimes) // calcula
 void contarestoqueVazio(struct Anime estoque[], int totalAnimes)
 {
     int vazio = 0;
+
+    // imprime os animes com estoque vazio
     printf("Animes com estoque vazio:\n");
+
+    // busca pelos animes com estoque vazio
     for (int i = 0; i < totalAnimes; i++)
     {
         if (estoque[i].quantidadeBluRay == 0)
@@ -108,15 +112,17 @@ void consultarCaixa()
 {
     float totalCaixa = 0.0;
 
-    printf("\nConsulta de Caixa:\n");
-    printf("============================================================\n");
-
+    // verifica se o caixa esta vazio
     if (totalVendas == 0)
     {
         printf("Nenhuma venda realizada! Caixa vazio.\n");
         return;
     }
 
+    printf("\nConsulta de Caixa:\n");
+    printf("============================================================\n");
+
+    // calcula o valor total
     for (int i = 0; i < totalVendas; i++)
     {
         totalCaixa += vendas[i];
@@ -156,7 +162,7 @@ void gerarRelatorioFinanceiro(struct Anime estoque[], int totalAnimes)
     // imprime os produtos
     for (int i = 0; i < totalAnimes; i++)
     {
-        float lucroProduto = (estoque[i].precodevenda - estoque[i].precodecompra) * (float)estoque[i].quantidadeBluRay;
+        float lucroProduto = (estoque[i].precodevenda - estoque[i].precodecompra) * (float)estoque[i].quantidadeBluRay; // calcula o lucro
 
         printf("%d || %s || R$ %.2f Reais || R$ %.2f Reais || %d Unidades || R$ %.2f\n",
                estoque[i].IDanime,

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "estoque.h"
+#include "estoque.h" // inclui o arquivo estoque.h para usar a estrutura Anime
 
 // funções
 int cadastrarAnime(struct Anime estoque[], int totalAnimes)
@@ -12,7 +12,7 @@ int cadastrarAnime(struct Anime estoque[], int totalAnimes)
         return totalAnimes;
     }
 
-    struct Anime novoAnime;
+    struct Anime novoAnime; // struct para armazenar os dados do anime
 
     // gera um ID ao anime
     novoAnime.IDanime = totalAnimes + 1;
