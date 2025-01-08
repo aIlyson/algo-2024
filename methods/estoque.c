@@ -37,7 +37,7 @@ int cadastrarAnime(struct Anime estoque[], int totalAnimes)
     scanf("%f", &novoAnime.precodecompra);
 
     // verifica o preco de compra
-    if (novoAnime.precodecompra <= 0)
+    if (novoAnime.precodecompra <= 0 || novoAnime.precodecompra > 499)
     {
         printf("ERRO... O preco de compra invalido!\n");
         return totalAnimes;
@@ -47,7 +47,7 @@ int cadastrarAnime(struct Anime estoque[], int totalAnimes)
     scanf("%f", &novoAnime.precodevenda);
 
     // verifica o preco de venda
-    if (novoAnime.precodevenda <= 0 || novoAnime.precodevenda < novoAnime.precodecompra)
+    if (novoAnime.precodevenda <= 0 || novoAnime.precodevenda < novoAnime.precodecompra || novoAnime.precodevenda > 500)
     {
         printf("ERRO... O preco de venda invalido!\n");
         return totalAnimes;
@@ -57,7 +57,7 @@ int cadastrarAnime(struct Anime estoque[], int totalAnimes)
     scanf("%d", &novoAnime.quantidadeBluRay);
 
     // verifica a quantidade de Blu-rays
-    if (novoAnime.quantidadeBluRay <= 0)
+    if (novoAnime.quantidadeBluRay <= 0 || novoAnime.quantidadeBluRay > 1000)
     {
         printf("ERRO... A quantidade de Blu-rays invalida!\n");
         return totalAnimes;
@@ -187,7 +187,7 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
                 scanf("%f", &novoPrecoCompra);
 
                 // verifica se o preco de compra e valido
-                if (novoPrecoCompra <= 0 || novoPrecoCompra > estoque[i].precodevenda)
+                if (novoPrecoCompra <= 0 || novoPrecoCompra > estoque[i].precodevenda || novoPrecoCompra > 499)
                 {
                     printf("ERRO... Preco de compra invalido!\n");
                 }
@@ -207,7 +207,7 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
                 scanf("%f", &novoPrecoVenda);
 
                 // verifica se o preco de venda é valido
-                if (novoPrecoVenda <= 0 || novoPrecoVenda < estoque[i].precodecompra)
+                if (novoPrecoVenda <= 0 || novoPrecoVenda < estoque[i].precodecompra || novoPrecoVenda > 500)
                 {
                     printf("ERRO... O preco de venda invalido!\n");
                 }
