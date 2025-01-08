@@ -218,25 +218,6 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
                 }
             }
 
-            printf("Deseja editar a quantidade de Blu-rays? (s/n): ");
-            scanf(" %c", &opcao);
-            if (opcao == 's' || opcao == 'S')
-            {
-                int novaQuantidade; // auxiliar para salvar a quantidade
-                printf("Digite a nova quantidade de Blu-rays: ");
-                scanf("%d", &novaQuantidade);
-
-                if (novaQuantidade < 0)
-                {
-                    printf("ERRO... Quantidade invalida!\n");
-                }
-                else
-                {
-                    estoque[i].quantidadeBluRay = novaQuantidade;
-                    printf("Quantidade de Blu-rays atualizada!\n");
-                }
-            }
-
             printf("\nAlteracoes concluidas!\n");
             return;
         }
