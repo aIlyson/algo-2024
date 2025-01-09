@@ -149,7 +149,6 @@ int main()
 
                     if (totalAnimes == 0)
                     {
-                        system("cls");
                         printf("Nao ha animes cadastrados! Nada para atualizar.\n");
                         break;
                     }
@@ -160,12 +159,23 @@ int main()
                     int escolha, codigo, quantidade;
                     scanf("%d", &escolha);
 
+                    if (escolha != 1 && escolha != 2)
+                    {
+                        printf("ERRO... Opcao invalida!\n");
+                        break;
+                    }
+
                     printf("Digite o codigo do anime: ");
                     scanf("%d", &codigo);
-                    // mostra o estoque
+
+                    if (codigo < 1 || codigo > totalAnimes)
+                    {
+                        printf("ERRO... Codigo do anime invalido!\n");
+                        break;
+                    }
+
                     printf("Estoque atual do anime: %d\n", estoque[codigo - 1].quantidadeBluRay);
 
-                    // notificação de estoque baixo
                     if (estoque[codigo - 1].quantidadeBluRay <= 3)
                     {
                         printf("AVISO... Estoque muito baixo!\n");
@@ -174,7 +184,12 @@ int main()
                     printf("Digite a quantidade: ");
                     scanf("%d", &quantidade);
 
-                    // valida a escolha
+                    if (quantidade <= 0)
+                    {
+                        printf("ERRO... Quantidade deve ser maior que zero!\n");
+                        break;
+                    }
+
                     if (escolha == 1)
                     {
                         atualizarEstoque(estoque, totalAnimes, codigo, quantidade, 1);
@@ -182,10 +197,6 @@ int main()
                     else if (escolha == 2)
                     {
                         atualizarEstoque(estoque, totalAnimes, codigo, quantidade, 0);
-                    }
-                    else
-                    {
-                        printf("ERRO... Opcao invalida!\n");
                     }
                     break;
 
