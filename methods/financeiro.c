@@ -3,10 +3,11 @@
 #include "financeiro.h" // inclui o arquivo financeiro.h para usar a estrutura Anime
 
 // variáveis globais
-float vendas[100];   // vetor para armazenar as vendas
-int totalVendas = 0; // contador de vendas
+float vendas[100];     // vetor para armazenar as vendas
+int totalVendas = 0;   // contador de vendas
 int historico[100][2]; // vetor para armazenar o histórico de vendas
-int cont=0;
+int cont = 0;
+
 // funções
 float calcularValorEstoque(struct Anime estoque[], int totalAnimes) // calcula o valor total do estoque
 {
@@ -98,14 +99,14 @@ void realizarVenda(struct Anime estoque[], int totalAnimes, int idAnime, int qua
                 // adiciona o histórico de vendas
                 if (cont == 100)
                 {
-                    for ( i = 0; i < 100; i++)
-                    for (int j = 0; j < 2; j++)
-                    {
-                        historico[i][j] = 0;
-                        cont = 0;
-                    }
+                    for (i = 0; i < 100; i++)
+                        for (int j = 0; j < 2; j++)
+                        {
+                            historico[i][j] = 0;
+                            cont = 0;
+                        }
                 }
-                
+
                 historico[cont][0] = idAnime;
                 historico[cont][1] = quantidadeVendida;
                 cont++;
@@ -158,9 +159,8 @@ void consultarCaixa()
     printf("ID || Quantidade vendida\n");
     for (int i = 0; i < cont; i++)
     {
-        printf("%d || %d\n", historico[i][0], historico[i][1]); 
+        printf("%d || %d\n", historico[i][0], historico[i][1]);
     }
-    
 }
 
 void gerarRelatorioFinanceiro(struct Anime estoque[], int totalAnimes)
@@ -175,7 +175,9 @@ void gerarRelatorioFinanceiro(struct Anime estoque[], int totalAnimes)
     printf("Valor total do estoque: R$ %.2f\n", valorTotal);
     printf("Lucro potencial estimado: R$ %.2f\n", lucroPotencial);
     contarestoqueVazio(estoque, totalAnimes);
-    int totalBluRays = 0; // verifica se o estoque INTEIRO de Blu-rays esta vazio
+    int totalBluRays = 0; // variável para armazenar o total de Blu-rays
+
+    // verifica se o estoque INTEIRO de Blu-rays esta vazio
     for (int i = 0; i < totalAnimes; i++)
     {
         totalBluRays += estoque[i].quantidadeBluRay;
