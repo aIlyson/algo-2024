@@ -228,13 +228,6 @@ void editarAnime(struct Anime estoque[], int totalAnimes)
 
 void atualizarEstoque(struct Anime estoque[], int totalAnimes, int IDanime, int quantidade, int entrada)
 {
-    // verifica se o estoque esta vazio
-    if (totalAnimes == 0)
-    {
-        printf("Nao ha animes cadastrados!\n");
-        return;
-    }
-
     // verifica se tem quantidade suficiente de Blu-rays
     if (quantidade <= 0)
     {
